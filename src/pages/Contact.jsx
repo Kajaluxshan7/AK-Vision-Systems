@@ -12,6 +12,8 @@ function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -20,25 +22,56 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitMessage("");
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        service: "",
-        message: "",
-        urgency: "medium",
+    try {
+      console.log('Submitting form data:', formData);
+      
+      const response = await fetch('http://localhost:3001/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      // First check if response is ok before trying to parse JSON
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Server response:', response.status, errorText);
+        throw new Error(`Server error: ${response.status}. Please try again later.`);
+      }
+
+      // Only try to parse JSON if response is ok
+      const result = await response.json();
+
+      setSubmitted(true);
+      setSubmitMessage("Thank you! Your message has been sent successfully. We'll get back to you within 2 hours during business hours.");
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+        setSubmitMessage("");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          service: "",
+          message: "",
+          urgency: "medium",
+        });
+      }, 5000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitMessage(`Error: ${error.message || 'Failed to send message'}. Please try again or contact us directly.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -117,12 +150,25 @@ function Contact() {
                   }}
                 >
                   <h3>Thank You!</h3>
-                  <p>
-                    Your message has been sent successfully. We'll get back to
-                    you within 2 hours during business hours.
-                  </p>
+                  <p>{submitMessage}</p>
                 </div>
-              ) : (
+              ) : submitMessage && !submitted ? (
+                <div
+                  style={{
+                    background: "#fef2f2",
+                    color: "#dc2626",
+                    padding: "2rem",
+                    borderRadius: "8px",
+                    textAlign: "center",
+                    border: "2px solid #dc2626",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  <p>{submitMessage}</p>
+                </div>
+              ) : null}
+
+              {!submitted && (
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label htmlFor="name">Full Name *</label>
@@ -225,8 +271,9 @@ function Contact() {
                     type="submit"
                     className="btn btn-primary"
                     style={{ width: "100%" }}
+                    disabled={isSubmitting}
                   >
-                    Send Message & Get Free Quote
+                    {isSubmitting ? "Sending..." : "Send Message & Get Free Quote"}
                   </button>
                 </form>
               )}
