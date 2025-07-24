@@ -30,7 +30,7 @@ function Contact() {
     try {
       console.log('Submitting form data:', formData);
       
-      const response = await fetch('http://localhost:3001/api/sendEmail', {
+      const response = await fetch('/api/sendEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ function Contact() {
       }
 
       // Only try to parse JSON if response is ok
-      const result = await response.json();
+      await response.json();
 
       setSubmitted(true);
       setSubmitMessage("Thank you! Your message has been sent successfully. We'll get back to you within 2 hours during business hours.");
