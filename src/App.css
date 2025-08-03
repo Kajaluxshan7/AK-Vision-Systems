@@ -9,8 +9,8 @@ body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #ffffff;
+  color: #1a1a1a;
+  background-color: #f8f9fa;
   overflow-x: hidden;
 }
 
@@ -25,16 +25,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #2c3e50;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
 }
 
 .app {
@@ -51,7 +51,7 @@ html {
 
 /* Header Styles */
 .header {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   color: white;
   padding: 1rem 0;
   position: fixed;
@@ -60,14 +60,16 @@ html {
   right: 0;
   z-index: 1000;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid #e74c3c;
 }
 
 .header.scrolled {
-  background: rgba(30, 58, 138, 0.95);
+  background: rgba(44, 62, 80, 0.95);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   padding: 0.5rem 0;
+  border-bottom: 2px solid #e74c3c;
 }
 
 .header .container {
@@ -87,6 +89,14 @@ html {
   height: 50px;
   object-fit: contain;
   border-radius: 8px;
+  background: white;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .brand-text h1 {
@@ -163,7 +173,7 @@ html {
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
-  color: #1e3a8a;
+  color: #2c3e50;
 }
 
 .section-subtitle {
@@ -178,7 +188,8 @@ html {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 73, 94, 0.8) 50%, rgba(231, 76, 60, 0.9) 100%),
+              url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=800&fit=crop&crop=center') center/cover;
   color: white;
   padding: 6rem 0;
   position: relative;
@@ -322,14 +333,15 @@ html {
 }
 
 .btn-primary {
-  background: #fbbf24;
-  color: #1e3a8a;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
 }
 
 .btn-primary:hover {
-  background: #f59e0b;
+  background: linear-gradient(135deg, #c0392b, #a93226);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
 }
 
 .btn-secondary {
@@ -386,14 +398,14 @@ html {
 .service-card:hover {
   transform: translateY(-12px) scale(1.02);
   box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
-  border-color: #3b82f6;
+  border-color: #34495e;
 }
 
 .service-icon {
   width: 80px;
   height: 80px;
   margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  background: linear-gradient(135deg, #34495e, #2c3e50);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -415,14 +427,14 @@ html {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #1e3a8a;
+  color: #2c3e50;
   transition: color 0.3s ease;
   position: relative;
   z-index: 1;
 }
 
 .service-card:hover h3 {
-  color: #3b82f6;
+  color: #34495e;
 }
 
 .service-card p {
@@ -477,8 +489,8 @@ html {
 
 .service-overlay .service-icon {
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -489,7 +501,7 @@ html {
 .service-link {
   display: inline-flex;
   align-items: center;
-  color: #3b82f6;
+  color: #34495e;
   text-decoration: none;
   font-weight: 500;
   margin-top: 1rem;
@@ -497,8 +509,72 @@ html {
 }
 
 .service-link:hover {
-  color: #1e3a8a;
+  color: #2c3e50;
   transform: translateX(5px);
+}
+
+/* Gallery Grid Styles */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(44, 62, 80, 0.9));
+  color: white;
+  padding: 2rem 1.5rem 1.5rem;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-overlay h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.gallery-overlay p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
 }
 
 /* Enhanced Stats Section */
@@ -532,7 +608,7 @@ html {
 
 /* Testimonials Section */
 .testimonials-section {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   color: white;
   padding: 5rem 0;
   position: relative;
@@ -579,8 +655,8 @@ html {
   padding: 2rem;
   transition: all 0.4s ease;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .testimonial-card:hover {
@@ -638,7 +714,7 @@ html {
   right: 20px;
   z-index: 1000;
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  color: #1e3a8a;
+  color: #2c3e50;
   border: none;
   border-radius: 50px;
   padding: 15px 25px;
@@ -725,7 +801,7 @@ html {
 
 .gallery-title {
   font-size: 1.5rem;
-  color: #1e3a8a;
+  color: #2c3e50;
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -852,7 +928,7 @@ html {
 }
 
 .modal-caption h4 {
-  color: #1e3a8a;
+  color: #2c3e50;
   margin-bottom: 0.5rem;
 }
 
@@ -868,7 +944,7 @@ html {
   height: 40px;
   border: 4px solid #f3f4f6;
   border-radius: 50%;
-  border-top-color: #3b82f6;
+  border-top-color: #34495e;
   animation: spin 1s ease-in-out infinite;
 }
 
@@ -907,7 +983,7 @@ html {
 .stat-number {
   font-size: 3rem;
   font-weight: 800;
-  color: #1e3a8a;
+  color: #2c3e50;
   display: block;
 }
 
@@ -953,7 +1029,7 @@ html {
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #34495e;
 }
 
 .form-group textarea {
@@ -1036,7 +1112,7 @@ html {
     top: 100%;
     left: 0;
     right: 0;
-    background: #1e3a8a;
+    background: #2c3e50;
     flex-direction: column;
     padding: 1rem;
     gap: 0;
@@ -1146,7 +1222,7 @@ html {
 
 .features-list h4,
 .benefits-list h4 {
-  color: #1e3a8a;
+  color: #2c3e50;
   margin-bottom: 1rem;
   font-size: 1.1rem;
 }
@@ -1169,7 +1245,7 @@ html {
   content: "▸";
   position: absolute;
   left: 0;
-  color: #3b82f6;
+  color: #34495e;
   font-weight: bold;
 }
 
@@ -1234,7 +1310,7 @@ html {
 .step-number {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  background: linear-gradient(135deg, #34495e, #2c3e50);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -1246,7 +1322,7 @@ html {
 }
 
 .process-step h3 {
-  color: #1e3a8a;
+  color: #2c3e50;
   margin-bottom: 1rem;
 }
 
@@ -1295,7 +1371,7 @@ html {
 }
 
 .value-card h3 {
-  color: #1e3a8a;
+  color: #2c3e50;
   margin-bottom: 1rem;
 }
 
@@ -1331,7 +1407,7 @@ html {
 .contact-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  background: linear-gradient(135deg, #34495e, #2c3e50);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -1341,7 +1417,7 @@ html {
 }
 
 .contact-details h4 {
-  color: #1e3a8a;
+  color: #2c3e50;
   margin-bottom: 0.5rem;
 }
 

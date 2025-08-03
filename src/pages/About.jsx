@@ -16,9 +16,9 @@ function About() {
     },
     {
       icon: "🇨🇦",
-      title: "Local Expertise",
+      title: "Ontario Expertise",
       description:
-        "Deep understanding of Canadian business needs, regulations, and market dynamics helps us deliver perfectly tailored solutions.",
+        "Deep understanding of Ontario business needs, regulations, and security requirements helps us deliver perfectly tailored solutions.",
     },
     {
       icon: "⚡",
@@ -43,11 +43,11 @@ function About() {
   const team = [
     {
       name: "Technical Excellence",
-      role: "Our certified technicians bring years of experience in security systems, audio-visual technology, and digital infrastructure.",
+      role: "Our certified technicians bring years of experience in security systems, CCTV installation, audio-visual technology, and digital infrastructure throughout Ontario.",
     },
     {
-      name: "Marketing Expertise",
-      role: "Our digital marketing specialists understand the Canadian market and create strategies that drive real business results.",
+      name: "Security Expertise",
+      role: "Our security specialists understand the unique challenges of Ontario businesses and create comprehensive protection strategies.",
     },
     {
       name: "Customer Support",

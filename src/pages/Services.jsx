@@ -1,12 +1,20 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Services() {
+  const [activeService, setActiveService] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
   const services = [
     {
       id: "cctv",
       icon: "🛡️",
       title: "CCTV & Security Systems",
       subtitle: "Professional Surveillance Solutions",
+      category: "security",
+      image:
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
       description:
         "Comprehensive security camera installation and monitoring services for businesses and residential properties across Canada.",
       features: [
