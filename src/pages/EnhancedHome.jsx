@@ -115,7 +115,7 @@ function EnhancedHome() {
   const stats = [
     { number: "500+", label: "Projects Completed", icon: "🚀" },
     { number: "100+", label: "Happy Clients", icon: "😊" },
-    { number: "5+", label: "Years Experience", icon: "⭐" },
+    { number: "10+", label: "Years Experience", icon: "⭐" },
     { number: "24/7", label: "AI Support", icon: "🤖" },
   ];
 
