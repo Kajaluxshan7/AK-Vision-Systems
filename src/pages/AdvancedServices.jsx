@@ -14,7 +14,6 @@ const AdvancedServices = () => {
       category: "security",
       image:
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format",
-      price: "Starting at $299",
       description:
         "Comprehensive security camera installation and monitoring services for businesses and residential properties across Canada.",
       features: [
@@ -49,7 +48,6 @@ const AdvancedServices = () => {
       category: "technology",
       image:
         "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=600&fit=crop&auto=format",
-      price: "Starting at $199",
       description:
         "Complete audio-visual systems for conferences, events, retail spaces, restaurants, and commercial facilities.",
       features: [
@@ -84,7 +82,6 @@ const AdvancedServices = () => {
       category: "marketing",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&auto=format",
-      price: "Starting at $499/month",
       description:
         "Strategic digital marketing solutions to boost your online visibility, drive traffic, and increase conversions.",
       features: [
@@ -119,7 +116,6 @@ const AdvancedServices = () => {
       category: "marketing",
       image:
         "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=600&fit=crop&auto=format",
-      price: "Starting at $299/month",
       description:
         "Expert management of your social media accounts across all major platforms to build engagement and grow your audience.",
       features: [
@@ -154,7 +150,6 @@ const AdvancedServices = () => {
       category: "technology",
       image:
         "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop&auto=format",
-      price: "Starting at $999",
       description:
         "Modern, responsive websites and web applications built with cutting-edge technology and optimized for performance.",
       features: [
@@ -184,7 +179,6 @@ const AdvancedServices = () => {
       category: "consulting",
       image:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&auto=format",
-      price: "Starting at $150/hour",
       description:
         "Strategic technology consulting to help you make informed decisions about your security and digital infrastructure.",
       features: [
@@ -519,7 +513,7 @@ const AdvancedServices = () => {
                       {activeService === service.id
                         ? "Hide Details"
                         : "View Details"}
-                      {activeService === service.id ? " ⬆️" : " ⬇️"}
+                      {activeService === service.id ? "" : ""}
                     </motion.button>
 
                     {/* Expanded Details */}
@@ -687,7 +681,7 @@ const AdvancedServices = () => {
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
                             >
-                              📞 Call Us
+                              Call Us
                             </motion.button>
                           </div>
                         </motion.div>
@@ -805,7 +799,7 @@ const AdvancedServices = () => {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              📞 Call (555) 123-4567
+              Call +1 416-508-4636
             </motion.button>
           </motion.div>
         </div>

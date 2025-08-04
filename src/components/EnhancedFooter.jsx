@@ -23,11 +23,9 @@ function EnhancedFooter() {
   ];
 
   const socialLinks = [
-    { label: "Facebook", icon: "📘", url: "#" },
-    { label: "Twitter", icon: "🐦", url: "#" },
-    { label: "LinkedIn", icon: "💼", url: "#" },
-    { label: "Instagram", icon: "📷", url: "#" },
-    { label: "YouTube", icon: "📺", url: "#" },
+    { label: "Facebook", icon: "fab fa-facebook-f", url: "#" },
+    { label: "Instagram", icon: "fab fa-instagram", url: "#" },
+    { label: "TikTok", icon: "fab fa-tiktok", url: "#" },
   ];
 
   const containerVariants = {
@@ -63,7 +61,7 @@ function EnhancedFooter() {
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
               <img
-                src="/Images/AK-Vision Systems Logo.png"
+                src="/Images/AK-Vision Systems Logo White Background.png"
                 alt="AK Vision Systems Logo"
                 className="h-12 w-12 rounded-lg"
               />
@@ -191,7 +189,7 @@ function EnhancedFooter() {
                     aria-label={social.label}
                     className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-lg hover:bg-tech-blue/20 hover:text-tech-blue transition-all hover:scale-110"
                   >
-                    {social.icon}
+                    <i className={social.icon}></i>
                   </a>
                 ))}
               </div>
@@ -246,7 +244,6 @@ function EnhancedFooter() {
                 <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
                 All Systems Operational
               </div>
-              <div className="text-gray-400">🇨🇦 Proudly Canadian</div>
             </div>
           </div>
         </motion.div>

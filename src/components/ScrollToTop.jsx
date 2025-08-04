@@ -31,33 +31,33 @@ function ScrollToTop() {
           onClick={scrollToTop}
           aria-label="Scroll to top"
           style={{
-            position: 'fixed',
-            bottom: '20px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '45px',
-            height: '45px',
-            background: 'linear-gradient(135deg, #7c3aed, #00f5ff)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            borderRadius: '50%',
-            color: 'white',
-            fontSize: '1.2rem',
-            cursor: 'pointer',
+            position: "fixed",
+            bottom: "75px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "25px",
+            height: "25px",
+            background: "linear-gradient(135deg, #7c3aed, #00f5ff)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            borderRadius: "50%",
+            color: "white",
+            fontSize: "1.2rem",
+            cursor: "pointer",
             zIndex: 999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 16px rgba(124, 58, 237, 0.3)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)'
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 4px 16px rgba(124, 58, 237, 0.3)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
           }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           whileHover={{
             scale: 1.1,
-            boxShadow: '0 6px 20px rgba(124, 58, 237, 0.4)',
-            background: 'linear-gradient(135deg, #00f5ff, #7c3aed)'
+            boxShadow: "0 6px 20px rgba(124, 58, 237, 0.4)",
+            background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
           }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.3 }}

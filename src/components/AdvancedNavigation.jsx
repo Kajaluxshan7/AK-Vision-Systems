@@ -66,10 +66,10 @@ const AdvancedNavigation = () => {
   const isActive = (path) => location.pathname === path;
 
   const navItems = [
-    { path: "/", label: "Home", icon: "🏠" },
-    { path: "/about", label: "About", icon: "👥" },
-    { path: "/services", label: "Services", icon: "🛡️" },
-    { path: "/contact", label: "Contact", icon: "📧" },
+    { path: "/", label: "Home", icon: "Home" },
+    { path: "/about", label: "About", icon: "About" },
+    { path: "/services", label: "Services", icon: "Services" },
+    { path: "/contact", label: "Contact", icon: "Contact" },
   ];
 
   return (
@@ -123,13 +123,14 @@ const AdvancedNavigation = () => {
               style={{
                 width: "50px",
                 height: "50px",
-                background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
+                background: "rgba(255, 255, 255, 0.1)",
                 borderRadius: "12px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "1.5rem",
+                padding: "8px",
                 boxShadow: "0 0 20px rgba(0, 245, 255, 0.4)",
+                backdropFilter: "blur(10px)",
               }}
               animate={{
                 boxShadow: [
@@ -140,7 +141,16 @@ const AdvancedNavigation = () => {
               }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              📹
+              <img
+                src="/Images/AK-Vision Systems Logo White Background.png"
+                alt="AK Vision Systems Logo"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  filter: "brightness(1.2) contrast(1.1)",
+                }}
+              />
             </motion.div>
             <div>
               <h1
@@ -207,7 +217,6 @@ const AdvancedNavigation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <span style={{ fontSize: "1.2rem" }}>{item.icon}</span>
                   {item.label}
                   {isActive(item.path) && (
                     <motion.div
@@ -251,7 +260,7 @@ const AdvancedNavigation = () => {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              🚀 Get Quote
+              Get Quote
             </motion.button>
 
             {/* Mobile Menu Toggle */}
@@ -270,7 +279,7 @@ const AdvancedNavigation = () => {
               whileTap={{ scale: 0.9 }}
               className="mobile-menu-toggle"
             >
-              {isMenuOpen ? "✖️" : "☰"}
+              {isMenuOpen ? "✕" : "☰"}
             </motion.button>
           </nav>
         </div>
@@ -330,7 +339,6 @@ const AdvancedNavigation = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <span style={{ fontSize: "1.2rem" }}>{item.icon}</span>
                     {item.label}
                   </motion.button>
                 ))}
@@ -358,7 +366,7 @@ const AdvancedNavigation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  🚀 Get Quote
+                  Get Quote
                 </motion.button>
               </div>
             </motion.div>

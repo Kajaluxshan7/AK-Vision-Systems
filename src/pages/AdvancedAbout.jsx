@@ -1,29 +1,40 @@
 import { motion } from "framer-motion";
+import {
+  FaTasks,
+  FaBolt,
+  FaHeadset,
+  FaStar,
+  FaShieldAlt,
+  FaRocket,
+  FaHandshake,
+  FaGem,
+  FaSatelliteDish,
+} from "react-icons/fa";
 
 const AdvancedAbout = () => {
   const stats = [
     {
       number: "500+",
       label: "Projects Completed",
-      icon: "🎯",
+      icon: <FaTasks style={{ color: "#00f5ff", fontSize: "2.2rem" }} />,
       description: "Successfully delivered projects across Canada",
     },
     {
       number: "99.9%",
       label: "Uptime Guarantee",
-      icon: "⚡",
+      icon: <FaBolt style={{ color: "#00f5ff", fontSize: "2.2rem" }} />,
       description: "Industry-leading system reliability",
     },
     {
       number: "24/7",
       label: "Support Available",
-      icon: "🔧",
+      icon: <FaHeadset style={{ color: "#00f5ff", fontSize: "2.2rem" }} />,
       description: "Round-the-clock technical assistance",
     },
     {
       number: "5★",
       label: "Customer Rating",
-      icon: "⭐",
+      icon: <FaStar style={{ color: "#00f5ff", fontSize: "2.2rem" }} />,
       description: "Consistently excellent service reviews",
     },
   ];
@@ -97,28 +108,28 @@ const AdvancedAbout = () => {
 
   const values = [
     {
-      icon: "🛡️",
+      icon: <FaShieldAlt style={{ color: "#00f5ff", fontSize: "2rem" }} />,
       title: "Security First",
       description:
         "We prioritize the safety and protection of our clients above all else, implementing industry-leading security protocols.",
     },
     {
-      icon: "🚀",
+      icon: <FaRocket style={{ color: "#7c3aed", fontSize: "2rem" }} />,
       title: "Innovation",
       description:
         "Constantly evolving with cutting-edge technology to provide the most advanced solutions available.",
     },
     {
-      icon: "🤝",
+      icon: <FaHandshake style={{ color: "#10b981", fontSize: "2rem" }} />,
       title: "Reliability",
       description:
         "Our clients depend on us for consistent, high-quality service and support they can trust.",
     },
     {
-      icon: "💎",
+      icon: <FaGem style={{ color: "#00f5ff", fontSize: "2rem" }} />,
       title: "Excellence",
       description:
-        "We strive for perfection in every project, ensuring exceptional results that exceed expectations.",
+        "We strive for excellence in every project, delivering results that exceed expectations.",
     },
   ];
 
@@ -203,7 +214,17 @@ const AdvancedAbout = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            🏢 About AK Vision Systems
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1rem",
+                justifyContent: "center",
+              }}
+            >
+              <FaTasks style={{ color: "#00f5ff", fontSize: "2.5rem" }} />
+              <span>About AK Vision Systems</span>
+            </span>
           </motion.h1>
 
           <motion.p
@@ -362,7 +383,14 @@ const AdvancedAbout = () => {
                   marginBottom: "2rem",
                 }}
               >
-                🎯 Our Mission
+                <FaRocket
+                  style={{
+                    color: "#00f5ff",
+                    fontSize: "2rem",
+                    marginRight: "0.5rem",
+                  }}
+                />{" "}
+                Our Mission
               </h2>
               <p
                 style={{
@@ -390,7 +418,14 @@ const AdvancedAbout = () => {
                   marginBottom: "2rem",
                 }}
               >
-                🌟 Our Vision
+                <FaStar
+                  style={{
+                    color: "#7c3aed",
+                    fontSize: "2rem",
+                    marginRight: "0.5rem",
+                  }}
+                />{" "}
+                Our Vision
               </h2>
               <p
                 style={{
@@ -458,7 +493,14 @@ const AdvancedAbout = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            💎 Our Core Values
+            <FaGem
+              style={{
+                color: "#00f5ff",
+                fontSize: "2rem",
+                marginRight: "0.5rem",
+              }}
+            />{" "}
+            Our Core Values
           </motion.h2>
 
           <div
@@ -543,7 +585,14 @@ const AdvancedAbout = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            👥 Meet Our Team
+            <FaHandshake
+              style={{
+                color: "#10b981",
+                fontSize: "2rem",
+                marginRight: "0.5rem",
+              }}
+            />{" "}
+            Meet Our Team
           </motion.h2>
 
           <div
@@ -677,7 +726,9 @@ const AdvancedAbout = () => {
                     }}
                     whileHover={{ scale: 1.1 }}
                   >
-                    💼
+                    <FaHandshake
+                      style={{ color: "#0077b5", fontSize: "1.2rem" }}
+                    />
                   </motion.a>
                   <motion.a
                     href={member.social.twitter}
@@ -695,7 +746,7 @@ const AdvancedAbout = () => {
                     }}
                     whileHover={{ scale: 1.1 }}
                   >
-                    🐦
+                    <FaBolt style={{ color: "#1da1f2", fontSize: "1.2rem" }} />
                   </motion.a>
                   <motion.a
                     href={`mailto:${member.social.email}`}
@@ -713,7 +764,9 @@ const AdvancedAbout = () => {
                     }}
                     whileHover={{ scale: 1.1 }}
                   >
-                    📧
+                    <FaHeadset
+                      style={{ color: "#00f5ff", fontSize: "1.2rem" }}
+                    />
                   </motion.a>
                 </div>
               </motion.div>
@@ -749,7 +802,14 @@ const AdvancedAbout = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🚀 Our Journey
+            <FaSatelliteDish
+              style={{
+                color: "#00f5ff",
+                fontSize: "2rem",
+                marginRight: "0.5rem",
+              }}
+            />{' '}
+            Our Journey
           </motion.h2>
 
           <div
@@ -982,7 +1042,8 @@ const AdvancedAbout = () => {
             }}
             whileTap={{ scale: 0.95 }}
           >
-            🤝 Get In Touch
+            <FaHandshake style={{ color: "#10b981", fontSize: "1.2rem" }} /> Get
+            In Touch
           </motion.button>
         </div>
       </section>

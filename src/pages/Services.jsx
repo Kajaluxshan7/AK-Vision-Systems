@@ -9,7 +9,7 @@ function Services() {
   const services = [
     {
       id: "cctv",
-      icon: "🛡️",
+      icon: "Security",
       title: "CCTV & Security Systems",
       subtitle: "Professional Surveillance Solutions",
       category: "security",
@@ -37,7 +37,7 @@ function Services() {
     },
     {
       id: "audio-video",
-      icon: "🎵",
+      icon: "Audio/Video",
       title: "Commercial Audio Video Installation",
       subtitle: "Professional AV Solutions",
       description:
@@ -62,7 +62,7 @@ function Services() {
     },
     {
       id: "digital-marketing",
-      icon: "📱",
+      icon: "Marketing",
       title: "Digital Marketing Services",
       subtitle: "Complete Online Presence Management",
       description:
@@ -87,7 +87,7 @@ function Services() {
     },
     {
       id: "social-media",
-      icon: "📲",
+      icon: "Social Media",
       title: "Social Media Management",
       subtitle: "Strategic Social Presence",
       description:
@@ -112,11 +112,11 @@ function Services() {
     },
     {
       id: "food-ordering",
-      icon: "🍽️",
+      icon: "Technology",
       title: "Online Food Ordering Systems",
       subtitle: "Restaurant Technology Solutions",
       description:
-        "Custom online ordering platforms and delivery management systems designed specifically for Canadian restaurants and food businesses.",
+        "Custom online food ordering system platforms and delivery management systems designed specifically for Canadian restaurants and food businesses.",
       features: [
         "Custom Ordering Website",
         "Mobile App Development",
@@ -137,7 +137,7 @@ function Services() {
     },
     {
       id: "marketing-strategy",
-      icon: "🎯",
+      icon: "Strategy",
       title: "Brand Strategy & Marketing",
       subtitle: "Comprehensive Marketing Solutions",
       description:
@@ -283,8 +283,8 @@ function Services() {
               <Link to="/contact" className="btn btn-primary">
                 Schedule Free Consultation
               </Link>
-              <a href="tel:+1-xxx-xxx-xxxx" className="btn btn-secondary">
-                Call: +1 (XXX) XXX-XXXX
+              <a href="tel:+1-416-508-4636" className="btn btn-secondary">
+                Call: +1 416-508-4636
               </a>
             </div>
           </div>
