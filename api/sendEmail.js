@@ -8,25 +8,25 @@ const rateLimitStore = new Map();
 function rateLimit(ip, windowMs = 15 * 60 * 1000, maxRequests = 5) {
   const now = Date.now();
   const windowStart = now - windowMs;
-  
+
   if (!rateLimitStore.has(ip)) {
     rateLimitStore.set(ip, []);
   }
-  
-  const requests = rateLimitStore.get(ip).filter(time => time > windowStart);
+
+  const requests = rateLimitStore.get(ip).filter((time) => time > windowStart);
   requests.push(now);
   rateLimitStore.set(ip, requests);
-  
+
   return requests.length <= maxRequests;
 }
 
 function sanitizeInput(input) {
-  if (typeof input !== 'string') return '';
+  if (typeof input !== "string") return "";
   // Remove potential XSS and injection attempts
   return input
-    .replace(/[<>]/g, '') // Remove HTML tags
-    .replace(/javascript:/gi, '') // Remove javascript: protocol
-    .replace(/on\w+\s*=/gi, '') // Remove event handlers
+    .replace(/[<>]/g, "") // Remove HTML tags
+    .replace(/javascript:/gi, "") // Remove javascript: protocol
+    .replace(/on\w+\s*=/gi, "") // Remove event handlers
     .trim()
     .substring(0, 1000); // Limit length
 }
@@ -39,7 +39,7 @@ function validateEmail(email) {
 function validatePhone(phone) {
   if (!phone) return true; // Optional field
   const phoneRegex = /^[+]?[1-9][\d]{0,15}$/;
-  return phoneRegex.test(phone.replace(/[\s\-()]/g, ''));
+  return phoneRegex.test(phone.replace(/[\s\-()]/g, ""));
 }
 
 export default async function handler(req, res) {
@@ -148,97 +148,221 @@ export default async function handler(req, res) {
     to: "thavamkajan2000@gmail.com",
     subject: `New Contact Request: ${sanitizedData.service}`,
     html: `<!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AK Vision Contact Request</title>
   <style>
-    body { margin:0; padding:0; background:#f6f8fc; font-family:Segoe UI,Arial,sans-serif; }
-    .container { max-width:600px; margin:32px auto; background:#fff; border-radius:24px; box-shadow:0 8px 32px rgba(124,58,237,0.10); border:1px solid #e0e7ef; overflow:hidden; }
-    .header { display:flex; align-items:center; gap:18px; background:#fff; padding:24px 32px 18px 32px; border-bottom:1px solid #ede7f6; }
-    .header img { height:48px; border-radius:10px; box-shadow:0 2px 8px rgba(124,58,237,0.10); background:#fff; padding:6px; }
-    .header h1 { margin:0; font-size:2.1rem; font-weight:900; color:#232a4d; letter-spacing:1.1px; }
-    .section { padding:28px 32px 24px 32px; }
-    .section h2 { font-size:1.08rem; font-weight:700; margin-bottom:14px; color:#7c3aed; letter-spacing:0.5px; }
-    .details { display:grid; grid-template-columns:1fr 1fr; gap:16px 24px; margin-bottom:20px; }
-    .detail { display:flex; align-items:center; gap:10px; min-width:0; padding:8px 0; }
-    .icon { width:22px; height:22px; display:inline-block; vertical-align:middle; }
-    .label { font-weight:600; color:#232a4d; font-size:1rem; white-space:nowrap; }
-    .value { color:#232a4d; font-size:1rem; overflow:hidden; text-overflow:ellipsis; font-weight:400; }
-    .message { background:linear-gradient(135deg,#ede7f6 0%,#e0f7fa 100%); border-radius:10px; padding:14px; color:#232a4d; margin-bottom:10px; font-size:1.03rem; font-weight:600; box-shadow:0 1px 6px rgba(124,58,237,0.04); word-break:break-word; }
-    .footer { display:flex; align-items:center; justify-content:space-between; background:#fff; padding:16px 32px; color:#232a4d; font-size:1rem; border-bottom-left-radius:24px; border-bottom-right-radius:24px; border-top:1px solid #ede7f6; box-shadow:0 -1px 6px rgba(124,58,237,0.08); }
-    .footer img { height:36px; border-radius:8px; box-shadow:0 2px 8px rgba(124,58,237,0.10); background:#fff; padding:4px; }
-    .footer-links { display:flex; flex-direction:column; align-items:flex-end; }
-    .footer-links a { color:#7c3aed; text-decoration:none; font-weight:700; font-size:1rem; transition:color 0.2s; margin-bottom:4px; }
-    .footer-links a:last-child { color:#232a4d; font-weight:600; font-size:0.96rem; margin-bottom:0; }
-    @media (max-width:600px) {
-      .container { border-radius:12px; }
-      .header, .section, .footer { padding:16px; }
-      .details { grid-template-columns:1fr; gap:12px 0; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f6f8fc;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 8px 32px rgba(124,58,237,0.13);
+      border: 1px solid #e0e7ef;
+      overflow: hidden;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #fff;
+      padding: 32px 40px 20px 40px;
+      border-bottom: 1px solid #ede7f6;
+    }
+    .header img {
+      height: 54px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(124,58,237,0.13);
+      background: #fff;
+      padding: 8px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #232a4d;
+      letter-spacing: 1.2px;
+    }
+    .section {
+      padding: 36px 40px 32px 40px;
+    }
+    .section h2 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #7c3aed;
+      letter-spacing: 0.6px;
+    }
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 32px;
+      margin-bottom: 28px;
+    }
+    .detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      padding: 10px 0;
+      background: #f6f8fc;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(124,58,237,0.04);
+    }
+    .icon {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .label {
+      font-weight: 700;
+      color: #7c3aed;
+      font-size: 1rem;
+      white-space: nowrap;
+      letter-spacing: 0.2px;
+    }
+    .value {
+      color: #232a4d;
+      font-size: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 500;
+    }
+    .divider {
+      height: 1px;
+      background: #ede7f6;
+      margin: 24px 0;
+      border: none;
+    }
+    .message {
+      background: linear-gradient(135deg,#ede7f6 0%,#e0f7fa 100%);
+      border-radius: 12px;
+      padding: 18px;
+      color: #232a4d;
+      margin-bottom: 16px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      box-shadow: 0 1px 6px rgba(124,58,237,0.06);
+      word-break: break-word;
+      line-height: 1.7;
+    }
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 20px 40px;
+      color: #232a4d;
+      font-size: 1rem;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+      border-top: 1px solid #ede7f6;
+      box-shadow: 0 -1px 6px rgba(124,58,237,0.10);
+    }
+    .footer img {
+      height: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(124,58,237,0.13);
+      background: #fff;
+      padding: 6px;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .footer-links a {
+      color: #7c3aed;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: color 0.2s;
+      margin-bottom: 6px;
+    }
+    .footer-links a:last-child {
+      color: #232a4d;
+      font-weight: 600;
+      font-size: 0.98rem;
+      margin-bottom: 0;
+    }
+    @media (max-width: 600px) {
+      .container { border-radius: 14px; }
+      .header, .section, .footer { padding: 16px; }
+      .details { grid-template-columns: 1fr; gap: 14px 0; }
     }
   </style>
 </head>
 <body>
-  <div class='container'>
-    <div class='header'>
-      <img src='https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png' alt='AK Vision Logo' />
+  <div class="container">
+    <div class="header">
+      <img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Logo" />
       <h1>AK Vision Contact Request</h1>
     </div>
-    <div class='section'>
+    <div class="section">
       <h2>Contact Details</h2>
-      <div class='details'>
-        <div class='detail'>
-          <span class='icon'>
-            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><circle cx='12' cy='8' r='4'/><rect x='6' y='16' width='12' height='4' rx='2'/></svg>
+      <div class="details">
+        <div class="detail">
+          <span class="icon">
+            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="8" r="4"/><rect x="6" y="16" width="12" height="4" rx="2"/></svg>
           </span>
-          <span class='label'>Name:</span>
-          <span class='value'>${sanitizedData.name}</span>
+          <span class="label">Name:</span>
+          <span class="value">${sanitizedData.name}</span>
         </div>
-        <div class='detail'>
-          <span class='icon'>
-            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><rect x='3' y='7' width='18' height='10' rx='2'/><polyline points='3,7 12,13 21,7' style='fill:none;stroke:#7c3aed;stroke-width:2'/></svg>
+        <div class="detail">
+          <span class="icon">
+            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="7" width="18" height="10" rx="2"/><polyline points="3,7 12,13 21,7" style="fill:none;stroke:#7c3aed;stroke-width:2"/></svg>
           </span>
-          <span class='label'>Email:</span>
-          <span class='value'>${sanitizedData.email}</span>
+          <span class="label">Email:</span>
+          <span class="value">${sanitizedData.email}</span>
         </div>
-        <div class='detail'>
-          <span class='icon'>
-            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><rect x='7' y='2' width='10' height='20' rx='2'/><circle cx='12' cy='18' r='1.5' fill='#fff'/></svg>
+        <div class="detail">
+          <span class="icon">
+            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1.5" fill="#fff"/></svg>
           </span>
-          <span class='label'>Phone:</span>
-          <span class='value'>${sanitizedData.phone || "Not provided"}</span>
+          <span class="label">Phone:</span>
+          <span class="value">${sanitizedData.phone || "Not provided"}</span>
         </div>
-        <div class='detail'>
-          <span class='icon'>
-            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><rect x='3' y='8' width='18' height='10' rx='2'/><rect x='7' y='4' width='10' height='4' rx='1'/></svg>
+        <div class="detail">
+          <span class="icon">
+            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="8" width="18" height="10" rx="2"/><rect x="7" y="4" width="10" height="4" rx="1"/></svg>
           </span>
-          <span class='label'>Company:</span>
-          <span class='value'>${sanitizedData.company || "Not provided"}</span>
+          <span class="label">Company:</span>
+          <span class="value">${sanitizedData.company || "Not provided"}</span>
         </div>
-        <div class='detail'>
-          <span class='icon'>
-            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><rect x='4' y='10' width='16' height='4' rx='2'/><rect x='8' y='6' width='8' height='4' rx='1'/></svg>
+        <div class="detail">
+          <span class="icon">
+            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><rect x="4" y="10" width="16" height="4" rx="2"/><rect x="8" y="6" width="8" height="4" rx="1"/></svg>
           </span>
-          <span class='label'>Service:</span>
-          <span class='value'>${sanitizedData.service}</span>
+          <span class="label">Service:</span>
+          <span class="value">${sanitizedData.service}</span>
         </div>
-        <div class='detail'>
-          <span class='icon'>
-            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><circle cx='12' cy='12' r='10'/><rect x='11' y='7' width='2' height='6' rx='1' fill='#fff'/><rect x='11' y='15' width='2' height='2' rx='1' fill='#fff'/></svg>
+        <div class="detail">
+          <span class="icon">
+            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10"/><rect x="11" y="7" width="2" height="6" rx="1" fill="#fff"/><rect x="11" y="15" width="2" height="2" rx="1" fill="#fff"/></svg>
           </span>
-          <span class='label'>Urgency:</span>
-          <span class='value'>${sanitizedData.urgency || "Not specified"}</span>
+          <span class="label">Urgency:</span>
+          <span class="value">${sanitizedData.urgency || "Not specified"}</span>
         </div>
       </div>
+      <hr class="divider" />
       <h2>Message</h2>
-      <div class='message'>${sanitizedData.message}</div>
+      <div class="message">${sanitizedData.message}</div>
     </div>
-    <div class='footer'>
-      <img src='https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png' alt='AK Vision Logo' />
-      <div class='footer-links'>
-        <a href='https://akvisionsystems.com/'>akvisionsystems.com</a>
-        <a href='mailto:akvisionsystems@gmail.com'>akvisionsystems@gmail.com</a>
+    <div class="footer">
+      <img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Logo" />
+      <div class="footer-links">
+        <a href="https://akvisionsystems.com/">akvisionsystems.com</a>
+        <a href="mailto:akvisionsystems@gmail.com">akvisionsystems@gmail.com</a>
       </div>
     </div>
   </div>
