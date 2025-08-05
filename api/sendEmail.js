@@ -145,7 +145,7 @@ export default async function handler(req, res) {
   // Modern HTML email template with enhanced UI
   const mailOptions = {
     from: process.env.GMAIL_USER,
-    to: "thavamkajan2000@gmail.com",
+    to: "akvisionsystems@gmail.com",
     subject: `New Contact Request: ${sanitizedData.service}`,
     html: `<!DOCTYPE html>
 <html lang="en">
