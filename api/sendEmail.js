@@ -136,45 +136,89 @@ export default async function handler(req, res) {
     to: "thavamkajan2000@gmail.com",
     subject: `New Contact Request: ${sanitizedData.service}`,
     html: `
-      <div style="background: linear-gradient(135deg, #0a0f1c 0%, #1a2347 50%, #0a0f1c 100%); padding: 40px 0; font-family: 'Segoe UI', 'Roboto', Arial, sans-serif; color: #fff;">
-        <div style="max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.05); border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); overflow: hidden;">
-          <div style="background: linear-gradient(135deg, #00f5ff, #7c3aed); padding: 32px 0 16px 0; text-align: center;">
-            <img src='https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png' alt='AK Vision Logo' style='height: 60px; margin-bottom: 16px;'/>
-            <h1 style="margin: 0; font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #00f5ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: #00f5ff;">AK Vision Contact Request</h1>
-          </div>
-          <div style="padding: 32px;">
-            <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; color: #00f5ff;">Contact Details</h2>
-            <table style="width: 100%; margin-bottom: 24px; border-collapse: collapse;">
-              <tr><td style="padding: 8px 0; font-weight: 500;">Name:</td><td style="padding: 8px 0;">${
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AK Vision Email Preview</title>
+  </head>
+  <body style="margin: 0; padding: 0; background: #f6f8fc">
+    <main style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #f6f8fc 0%, #ede7f6 100%);">
+      <section style="max-width: 600px; width: 100%; background: #fff; border-radius: 24px; box-shadow: 0 8px 32px rgba(124,58,237,0.10); overflow: hidden; border: 1px solid #e0e7ef;">
+        <header style="display: flex; align-items: center; gap: 18px; background: #fff; padding: 24px 32px 18px 32px; border-bottom: 1px solid #ede7f6;">
+          <img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Logo" style="height: 48px; border-radius: 10px; box-shadow: 0 2px 8px rgba(124,58,237,0.10); background: #fff; padding: 6px;" />
+          <h1 style="margin: 0; font-size: 2.1rem; font-weight: 900; color: #232a4d; letter-spacing: 1.1px;">AK Vision Contact Request</h1>
+        </header>
+        <section style="padding: 28px 32px 24px 32px;">
+          <h2 style="font-size: 1.08rem; font-weight: 700; margin-bottom: 14px; color: #7c3aed; letter-spacing: 0.5px;">Contact Details</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <!-- Simple User Icon -->
+              <svg width="20" height="20" style="vertical-align: middle" viewBox="0 0 24 24" fill="#7c3aed"><circle cx="12" cy="8" r="4" /><rect x="6" y="16" width="12" height="4" rx="2" /></svg>
+              <span style="font-weight: 600; color: #232a4d; font-size: 1rem">Name:</span>
+              <span style="color: #232a4d; font-size: 1rem">${
                 sanitizedData.name
-              }</td></tr>
-              <tr><td style="padding: 8px 0; font-weight: 500;">Email:</td><td style="padding: 8px 0;">${
+              }</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <!-- Simple Email Icon -->
+              <svg width="20" height="20" style="vertical-align: middle" viewBox="0 0 24 24" fill="#7c3aed"><rect x="3" y="7" width="18" height="10" rx="2" /><polyline points="3,7 12,13 21,7" style="fill:none;stroke:#7c3aed;stroke-width:2"/></svg>
+              <span style="font-weight: 600; color: #232a4d; font-size: 1rem">Email:</span>
+              <span style="color: #232a4d; font-size: 1rem">${
                 sanitizedData.email
-              }</td></tr>
-              <tr><td style="padding: 8px 0; font-weight: 500;">Phone:</td><td style="padding: 8px 0;">${
+              }</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <!-- Simple Phone Icon -->
+              <svg width="20" height="20" style="vertical-align: middle" viewBox="0 0 24 24" fill="#7c3aed"><rect x="7" y="2" width="10" height="20" rx="2" /><circle cx="12" cy="18" r="1.5" fill="#fff"/></svg>
+              <span style="font-weight: 600; color: #232a4d; font-size: 1rem">Phone:</span>
+              <span style="color: #232a4d; font-size: 1rem">${
                 sanitizedData.phone || "Not provided"
-              }</td></tr>
-              <tr><td style="padding: 8px 0; font-weight: 500;">Company:</td><td style="padding: 8px 0;">${
+              }</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <!-- Simple Company Icon -->
+              <svg width="20" height="20" style="vertical-align: middle" viewBox="0 0 24 24" fill="#7c3aed"><rect x="3" y="8" width="18" height="10" rx="2" /><rect x="7" y="4" width="10" height="4" rx="1"/></svg>
+              <span style="font-weight: 600; color: #232a4d; font-size: 1rem">Company:</span>
+              <span style="color: #232a4d; font-size: 1rem">${
                 sanitizedData.company || "Not provided"
-              }</td></tr>
-              <tr><td style="padding: 8px 0; font-weight: 500;">Service:</td><td style="padding: 8px 0;">${
+              }</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <!-- Simple Service Icon -->
+              <svg width="20" height="20" style="vertical-align: middle" viewBox="0 0 24 24" fill="#7c3aed"><rect x="4" y="10" width="16" height="4" rx="2" /><rect x="8" y="6" width="8" height="4" rx="1"/></svg>
+              <span style="font-weight: 600; color: #232a4d; font-size: 1rem">Service:</span>
+              <span style="color: #232a4d; font-size: 1rem">${
                 sanitizedData.service
-              }</td></tr>
-              <tr><td style="padding: 8px 0; font-weight: 500;">Urgency:</td><td style="padding: 8px 0;">${
+              }</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <!-- Simple Urgency Icon -->
+              <svg width="20" height="20" style="vertical-align: middle" viewBox="0 0 24 24" fill="#7c3aed"><circle cx="12" cy="12" r="10"/><rect x="11" y="7" width="2" height="6" rx="1" fill="#fff"/><rect x="11" y="15" width="2" height="2" rx="1" fill="#fff"/></svg>
+              <span style="font-weight: 600; color: #232a4d; font-size: 1rem">Urgency:</span>
+              <span style="color: #232a4d; font-size: 1rem">${
                 sanitizedData.urgency || "Not specified"
-              }</td></tr>
-            </table>
-            <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: #7c3aed;">Message</h2>
-            <div style="background: rgba(124,58,237,0.08); border-radius: 12px; padding: 16px; color: #fff; margin-bottom: 24px;">${
-              sanitizedData.message
-            }</div>
-            <div style="font-size: 0.95rem; color: #aaa; margin-bottom: 8px;">Client IP: ${clientIP}</div>
-            <div style="font-size: 0.95rem; color: #aaa; margin-bottom: 8px;">Timestamp: ${new Date().toLocaleString()}</div>
-            <div style="margin-top: 24px; text-align: center; color: #7c3aed; font-size: 1rem;">Please respond promptly.</div>
+              }</span>
+            </div>
           </div>
-        </div>
-      </div>
-    `,
+          <h2 style="font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; color: #7c3aed; letter-spacing: 0.5px;">Message</h2>
+          <div style="background: linear-gradient(135deg, #ede7f6 0%, #e0f7fa 100%); border-radius: 10px; padding: 14px; color: #232a4d; margin-bottom: 10px; font-size: 1.03rem; font-weight: 600; box-shadow: 0 1px 6px rgba(124,58,237,0.04);">${
+            sanitizedData.message
+          }</div>
+        </section>
+        <footer style="display: flex; align-items: center; justify-content: space-between; background: #fff; padding: 16px 32px; color: #232a4d; font-size: 1rem; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; border-top: 1px solid #ede7f6; box-shadow: 0 -1px 6px rgba(124,58,237,0.08);">
+          <img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Logo" style="height: 36px; border-radius: 8px; box-shadow: 0 2px 8px rgba(124,58,237,0.10); background: #fff; padding: 4px;" />
+          <div style="display: flex; flex-direction: column; align-items: flex-end;">
+            <a href="https://akvisionsystems.com/" style="color: #7c3aed; text-decoration: none; font-weight: 700; font-size: 1rem; transition: color 0.2s; margin-bottom: 4px;" onmouseover="this.style.color='#232a4d'" onmouseout="this.style.color='#7c3aed'">akvisionsystems.com</a>
+            <a href="mailto:akvisionsystems@gmail.com" style="color: #232a4d; text-decoration: none; font-weight: 600; font-size: 0.96rem; transition: color 0.2s;" onmouseover="this.style.color='#7c3aed'" onmouseout="this.style.color='#232a4d'">akvisionsystems@gmail.com</a>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
+`,
   };
 
   try {
