@@ -162,9 +162,10 @@ export default async function handler(req, res) {
     .section { padding:28px 32px 24px 32px; }
     .section h2 { font-size:1.08rem; font-weight:700; margin-bottom:14px; color:#7c3aed; letter-spacing:0.5px; }
     .details { display:grid; grid-template-columns:1fr 1fr; gap:16px 24px; margin-bottom:20px; }
-    .detail { display:flex; align-items:center; gap:8px; min-width:0; }
-    .detail span { font-weight:600; color:#232a4d; font-size:1rem; white-space:nowrap; }
-    .detail .value { color:#232a4d; font-size:1rem; overflow:hidden; text-overflow:ellipsis; font-weight:400; }
+    .detail { display:flex; align-items:center; gap:10px; min-width:0; padding:8px 0; }
+    .icon { width:22px; height:22px; display:inline-block; vertical-align:middle; }
+    .label { font-weight:600; color:#232a4d; font-size:1rem; white-space:nowrap; }
+    .value { color:#232a4d; font-size:1rem; overflow:hidden; text-overflow:ellipsis; font-weight:400; }
     .message { background:linear-gradient(135deg,#ede7f6 0%,#e0f7fa 100%); border-radius:10px; padding:14px; color:#232a4d; margin-bottom:10px; font-size:1.03rem; font-weight:600; box-shadow:0 1px 6px rgba(124,58,237,0.04); word-break:break-word; }
     .footer { display:flex; align-items:center; justify-content:space-between; background:#fff; padding:16px 32px; color:#232a4d; font-size:1rem; border-bottom-left-radius:24px; border-bottom-right-radius:24px; border-top:1px solid #ede7f6; box-shadow:0 -1px 6px rgba(124,58,237,0.08); }
     .footer img { height:36px; border-radius:8px; box-shadow:0 2px 8px rgba(124,58,237,0.10); background:#fff; padding:4px; }
@@ -187,24 +188,48 @@ export default async function handler(req, res) {
     <div class='section'>
       <h2>Contact Details</h2>
       <div class='details'>
-        <div class='detail'><span>Name:</span> <span class='value'>${
-          sanitizedData.name
-        }</span></div>
-        <div class='detail'><span>Email:</span> <span class='value'>${
-          sanitizedData.email
-        }</span></div>
-        <div class='detail'><span>Phone:</span> <span class='value'>${
-          sanitizedData.phone || "Not provided"
-        }</span></div>
-        <div class='detail'><span>Company:</span> <span class='value'>${
-          sanitizedData.company || "Not provided"
-        }</span></div>
-        <div class='detail'><span>Service:</span> <span class='value'>${
-          sanitizedData.service
-        }</span></div>
-        <div class='detail'><span>Urgency:</span> <span class='value'>${
-          sanitizedData.urgency || "Not specified"
-        }</span></div>
+        <div class='detail'>
+          <span class='icon'>
+            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><circle cx='12' cy='8' r='4'/><rect x='6' y='16' width='12' height='4' rx='2'/></svg>
+          </span>
+          <span class='label'>Name:</span>
+          <span class='value'>${sanitizedData.name}</span>
+        </div>
+        <div class='detail'>
+          <span class='icon'>
+            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><rect x='3' y='7' width='18' height='10' rx='2'/><polyline points='3,7 12,13 21,7' style='fill:none;stroke:#7c3aed;stroke-width:2'/></svg>
+          </span>
+          <span class='label'>Email:</span>
+          <span class='value'>${sanitizedData.email}</span>
+        </div>
+        <div class='detail'>
+          <span class='icon'>
+            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><rect x='7' y='2' width='10' height='20' rx='2'/><circle cx='12' cy='18' r='1.5' fill='#fff'/></svg>
+          </span>
+          <span class='label'>Phone:</span>
+          <span class='value'>${sanitizedData.phone || "Not provided"}</span>
+        </div>
+        <div class='detail'>
+          <span class='icon'>
+            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><rect x='3' y='8' width='18' height='10' rx='2'/><rect x='7' y='4' width='10' height='4' rx='1'/></svg>
+          </span>
+          <span class='label'>Company:</span>
+          <span class='value'>${sanitizedData.company || "Not provided"}</span>
+        </div>
+        <div class='detail'>
+          <span class='icon'>
+            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><rect x='4' y='10' width='16' height='4' rx='2'/><rect x='8' y='6' width='8' height='4' rx='1'/></svg>
+          </span>
+          <span class='label'>Service:</span>
+          <span class='value'>${sanitizedData.service}</span>
+        </div>
+        <div class='detail'>
+          <span class='icon'>
+            <svg fill='#7c3aed' viewBox='0 0 24 24' width='22' height='22'><circle cx='12' cy='12' r='10'/><rect x='11' y='7' width='2' height='6' rx='1' fill='#fff'/><rect x='11' y='15' width='2' height='2' rx='1' fill='#fff'/></svg>
+          </span>
+          <span class='label'>Urgency:</span>
+          <span class='value'>${sanitizedData.urgency || "Not specified"}</span>
+        </div>
       </div>
       <h2>Message</h2>
       <div class='message'>${sanitizedData.message}</div>
