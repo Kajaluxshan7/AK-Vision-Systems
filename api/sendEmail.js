@@ -142,239 +142,70 @@ export default async function handler(req, res) {
     },
   });
 
-  // Improved HTML email template
+  // Modern HTML email template
   const mailOptions = {
     from: process.env.GMAIL_USER,
     to: "thavamkajan2000@gmail.com",
     subject: `New Contact Request: ${sanitizedData.service}`,
-    html: `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AK Vision Contact Request</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f6f8fc;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 28px;
-      box-shadow: 0 8px 32px rgba(124,58,237,0.13);
-      border: 1px solid #e0e7ef;
-      overflow: hidden;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      background: #fff;
-      padding: 32px 40px 20px 40px;
-      border-bottom: 1px solid #ede7f6;
-    }
-    .header img {
-      height: 54px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(124,58,237,0.13);
-      background: #fff;
-      padding: 8px;
-    }
-    .header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: #232a4d;
-      letter-spacing: 1.2px;
-    }
-    .section {
-      padding: 36px 40px 32px 40px;
-    }
-    .section h2 {
-      font-size: 1.12rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-      color: #7c3aed;
-      letter-spacing: 0.6px;
-    }
-    .details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px 32px;
-      margin-bottom: 28px;
-    }
-    .detail {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-      padding: 10px 0;
-      background: #f6f8fc;
-      border-radius: 10px;
-      box-shadow: 0 1px 6px rgba(124,58,237,0.04);
-    }
-    .icon {
-      width: 24px;
-      height: 24px;
-      display: inline-block;
-      vertical-align: middle;
-      flex-shrink: 0;
-    }
-    .label {
-      font-weight: 700;
-      color: #7c3aed;
-      font-size: 1rem;
-      white-space: nowrap;
-      letter-spacing: 0.2px;
-    }
-    .value {
-      color: #232a4d;
-      font-size: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-weight: 500;
-    }
-    .divider {
-      height: 1px;
-      background: #ede7f6;
-      margin: 24px 0;
-      border: none;
-    }
-    .message {
-      background: linear-gradient(135deg,#ede7f6 0%,#e0f7fa 100%);
-      border-radius: 12px;
-      padding: 18px;
-      color: #232a4d;
-      margin-bottom: 16px;
-      font-size: 1.08rem;
-      font-weight: 600;
-      box-shadow: 0 1px 6px rgba(124,58,237,0.06);
-      word-break: break-word;
-      line-height: 1.7;
-    }
-    .footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      padding: 20px 40px;
-      color: #232a4d;
-      font-size: 1rem;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
-      border-top: 1px solid #ede7f6;
-      box-shadow: 0 -1px 6px rgba(124,58,237,0.10);
-    }
-    .footer img {
-      height: 40px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(124,58,237,0.13);
-      background: #fff;
-      padding: 6px;
-    }
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-    .footer-links a {
-      color: #7c3aed;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: color 0.2s;
-      margin-bottom: 6px;
-    }
-    .footer-links a:last-child {
-      color: #232a4d;
-      font-weight: 600;
-      font-size: 0.98rem;
-      margin-bottom: 0;
-    }
-    @media (max-width: 600px) {
-      .container { border-radius: 14px; }
-      .header, .section, .footer { padding: 16px; }
-      .details { grid-template-columns: 1fr; gap: 14px 0; }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Logo" />
-      <h1>AK Vision Contact Request</h1>
-    </div>
-    <div class="section">
-      <h2>Contact Details</h2>
-      <div class="details">
-        <div class="detail">
-          <span class="icon">
-            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="8" r="4"/><rect x="6" y="16" width="12" height="4" rx="2"/></svg>
-          </span>
-          <span class="label">Name:</span>
-          <span class="value">${sanitizedData.name}</span>
-        </div>
-        <div class="detail">
-          <span class="icon">
-            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="7" width="18" height="10" rx="2"/><polyline points="3,7 12,13 21,7" style="fill:none;stroke:#7c3aed;stroke-width:2"/></svg>
-          </span>
-          <span class="label">Email:</span>
-          <span class="value">${sanitizedData.email}</span>
-        </div>
-        <div class="detail">
-          <span class="icon">
-            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1.5" fill="#fff"/></svg>
-          </span>
-          <span class="label">Phone:</span>
-          <span class="value">${sanitizedData.phone || "Not provided"}</span>
-        </div>
-        <div class="detail">
-          <span class="icon">
-            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="8" width="18" height="10" rx="2"/><rect x="7" y="4" width="10" height="4" rx="1"/></svg>
-          </span>
-          <span class="label">Company:</span>
-          <span class="value">${sanitizedData.company || "Not provided"}</span>
-        </div>
-        <div class="detail">
-          <span class="icon">
-            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><rect x="4" y="10" width="16" height="4" rx="2"/><rect x="8" y="6" width="8" height="4" rx="1"/></svg>
-          </span>
-          <span class="label">Service:</span>
-          <span class="value">${sanitizedData.service}</span>
-        </div>
-        <div class="detail">
-          <span class="icon">
-            <svg fill="#7c3aed" viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10"/><rect x="11" y="7" width="2" height="6" rx="1" fill="#fff"/><rect x="11" y="15" width="2" height="2" rx="1" fill="#fff"/></svg>
-          </span>
-          <span class="label">Urgency:</span>
-          <span class="value">${sanitizedData.urgency || "Not specified"}</span>
-        </div>
-      </div>
-      <hr class="divider" />
-      <h2>Message</h2>
-      <div class="message">${sanitizedData.message}</div>
-    </div>
-    <div class="footer">
-      <img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Logo" />
-      <div class="footer-links">
-        <a href="https://akvisionsystems.com/">akvisionsystems.com</a>
-        <a href="mailto:akvisionsystems@gmail.com">akvisionsystems@gmail.com</a>
-      </div>
-    </div>
-  </div>
-</body>
-</html>`,
+    html:
+      `<!DOCTYPE html>` +
+      `<html lang="en">` +
+      `<head>` +
+      `<meta charset="UTF-8">` +
+      `<meta name="viewport" content="width=device-width, initial-scale=1.0">` +
+      `<title>AK Vision Contact Request</title>` +
+      `<style>` +
+      `body {margin:0;padding:0;background:#f4f7fb;font-family:'Segoe UI',Arial,sans-serif;}` +
+      `.main {max-width:640px;margin:48px auto;background:#fff;border-radius:32px;box-shadow:0 8px 32px rgba(124,58,237,0.10);border:1px solid #e0e7ef;overflow:hidden;}` +
+      `.header {text-align:center;padding:40px 32px 24px 32px;background:#f7f5ff;border-bottom:1px solid #ede7f6;}` +
+      `.header img {height:60px;border-radius:14px;box-shadow:0 2px 8px rgba(124,58,237,0.10);background:#fff;padding:10px;margin-bottom:18px;}` +
+      `.header h1 {margin:0;font-size:2.3rem;font-weight:900;color:#232a4d;letter-spacing:1.2px;}` +
+      `.section {padding:40px 32px 32px 32px;}` +
+      `.section-title {font-size:1.18rem;font-weight:700;margin-bottom:24px;color:#7c3aed;letter-spacing:0.7px;text-align:left;}` +
+      `.details-table {width:100%;border-collapse:separate;border-spacing:0 16px;margin-bottom:32px;}` +
+      `.details-table td {background:#f6f8fc;border-radius:12px;padding:18px 20px;font-size:1.08rem;color:#232a4d;font-weight:500;vertical-align:top;border:none;}` +
+      `.details-table .label {font-weight:700;color:#7c3aed;width:120px;font-size:1.08rem;letter-spacing:0.2px;}` +
+      `.message-block {background:linear-gradient(135deg,#ede7f6 0%,#e0f7fa 100%);border-radius:16px;padding:24px;color:#232a4d;font-size:1.12rem;font-weight:600;box-shadow:0 1px 6px rgba(124,58,237,0.06);word-break:break-word;line-height:1.7;margin-bottom:18px;}` +
+      `.footer {text-align:center;background:#f7f5ff;padding:28px 32px;color:#232a4d;font-size:1.02rem;border-top:1px solid #ede7f6;border-bottom-left-radius:32px;border-bottom-right-radius:32px;}` +
+      `.footer img {height:44px;border-radius:12px;box-shadow:0 2px 8px rgba(124,58,237,0.10);background:#fff;padding:8px;margin-bottom:12px;}` +
+      `.footer-links {margin-top:10px;}` +
+      `.footer-links a {color:#7c3aed;text-decoration:none;font-weight:700;font-size:1.05rem;margin:0 8px;transition:color 0.2s;}` +
+      `.footer-links a:last-child {color:#232a4d;font-weight:600;font-size:1.01rem;}` +
+      `@media (max-width:700px) {` +
+      `.main {border-radius:18px;}` +
+      `.header, .section, .footer {padding:16px;}` +
+      `.details-table td {padding:12px 10px;}` +
+      `.message-block {padding:14px;}` +
+      `}` +
+      `</style>` +
+      `</head>` +
+      `<body>` +
+      `<div class="main">` +
+      `<div class="header">` +
+      `<img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Logo" />` +
+      `<h1>AK Vision Contact Request</h1>` +
+      `</div>` +
+      `<div class="section">` +
+      `<div class="section-title">Contact Details</div>` +
+      `<table class="details-table">` +
+      `<tr><td class="label">Name</td><td>${sanitizedData.name}</td></tr>` +
+      `<tr><td class="label">Email</td><td>${sanitizedData.email}</td></tr>` +
+      `<tr><td class="label">Phone</td><td>${sanitizedData.phone || "Not provided"}</td></tr>` +
+      `<tr><td class="label">Company</td><td>${sanitizedData.company || "Not provided"}</td></tr>` +
+      `<tr><td class="label">Service</td><td>${sanitizedData.service}</td></tr>` +
+      `<tr><td class="label">Urgency</td><td>${sanitizedData.urgency || "Not specified"}</td></tr>` +
+      `</table>` +
+      `<div class="section-title">Message</div>` +
+      `<div class="message-block">${sanitizedData.message}</div>` +
+      `</div>` +
+      `<div class="footer">` +
+      `<img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Logo" />` +
+      `<div class="footer-links">` +
+      `<a href="https://akvisionsystems.com/">akvisionsystems.com</a>` +
+      `<a href="mailto:akvisionsystems@gmail.com">akvisionsystems@gmail.com</a>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</body>` +
+      `</html>`
   };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    return res.status(200).json({ success: true });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    return res.status(500).json({ error: "Failed to send email" });
-  }
-}
