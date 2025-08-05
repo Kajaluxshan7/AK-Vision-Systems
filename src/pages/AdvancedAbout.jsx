@@ -14,7 +14,7 @@ import {
 const AdvancedAbout = () => {
   const stats = [
     {
-      number: "500+",
+      number: "3000+",
       label: "Projects Completed",
       icon: <FaTasks style={{ color: "#00f5ff", fontSize: "2.2rem" }} />,
       description: "Successfully delivered projects across Canada",
@@ -32,7 +32,7 @@ const AdvancedAbout = () => {
       description: "Round-the-clock technical assistance",
     },
     {
-      number: "5★",
+      number: "4.8★",
       label: "Customer Rating",
       icon: <FaStar style={{ color: "#00f5ff", fontSize: "2.2rem" }} />,
       description: "Consistently excellent service reviews",
@@ -41,67 +41,17 @@ const AdvancedAbout = () => {
 
   const team = [
     {
-      name: "Akash Kumar",
+      name: "Jana",
       role: "Founder & CEO",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&auto=format",
-      bio: "Visionary leader with 10+ years in security technology and business innovation.",
+      bio: "Over 9 years of experience in CCTV installation and commercial, residential audio & video system installation and management.",
       specialties: [
-        "Strategic Planning",
-        "Technology Vision",
-        "Business Development",
+        "CCTV Installation",
+        "Commercial, Residential Audio & Video Systems",
       ],
       social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "akash@akvision.ca",
-      },
-    },
-    {
-      name: "Sarah Chen",
-      role: "Chief Technology Officer",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b550?w=400&h=400&fit=crop&auto=format",
-      bio: "Expert in security systems architecture and AI-powered surveillance solutions.",
-      specialties: [
-        "System Architecture",
-        "AI Development",
-        "Security Protocols",
-      ],
-      social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "sarah@akvision.ca",
-      },
-    },
-    {
-      name: "Marcus Johnson",
-      role: "Head of Operations",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&auto=format",
-      bio: "Operations specialist ensuring seamless project delivery and customer satisfaction.",
-      specialties: [
-        "Project Management",
-        "Quality Assurance",
-        "Team Leadership",
-      ],
-      social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "marcus@akvision.ca",
-      },
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Marketing Director",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&auto=format",
-      bio: "Creative marketing strategist specializing in digital transformation and brand growth.",
-      specialties: ["Digital Marketing", "Brand Strategy", "Content Creation"],
-      social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "emily@akvision.ca",
+        email: "akvisionsystems@gmail.com",
       },
     },
   ];
@@ -135,46 +85,39 @@ const AdvancedAbout = () => {
 
   const timeline = [
     {
+      year: "2017",
+      title: "CCTV Installation & Maintenance",
+      description:
+        "Began offering reliable CCTV installation and maintenance services, ensuring safety and security for both commercial and residential clients.",
+      image:
+        "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=600&h=400&fit=crop&auto=format", // Security camera closeup
+    },
+    {
       year: "2020",
-      title: "Company Founded",
+      title: "Audio & Video System Maintenance",
       description:
-        "AK Vision Systems established with a mission to revolutionize security technology in Canada.",
+        "Expanded services to include maintenance of commercial and residential audio and video systems, enhancing client media infrastructure reliability.",
       image:
-        "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop&auto=format",
-    },
-    {
-      year: "2021",
-      title: "First Major Contract",
-      description:
-        "Secured our first enterprise-level security installation for a major retail chain.",
-      image:
-        "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&h=400&fit=crop&auto=format",
-    },
-    {
-      year: "2022",
-      title: "Digital Expansion",
-      description:
-        "Launched comprehensive digital marketing and web development services.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&auto=format",
+        "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=600&h=400&fit=crop&auto=format", // Audio mixing console
     },
     {
       year: "2023",
-      title: "AI Integration",
+      title: "Audio & Video Installation & Management",
       description:
-        "Pioneered AI-powered surveillance systems with advanced analytics capabilities.",
+        "Launched full-scale installation and management solutions for audio and video systems across commercial and residential sectors.",
       image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&auto=format",
+        "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=600&h=400&fit=crop&auto=format", // Home theater setup
     },
     {
-      year: "2024",
-      title: "Market Leadership",
+      year: "2025",
+      title: "Digital Marketing Services",
       description:
-        "Achieved recognition as a leading security technology provider across Canada.",
+        "Entered the digital marketing space, offering strategic online branding, SEO, and media solutions to help businesses grow their digital presence.",
       image:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop&auto=format",
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop&auto=format", // Digital marketing workspace
     },
   ];
+
 
   return (
     <div

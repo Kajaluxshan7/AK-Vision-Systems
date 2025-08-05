@@ -31,7 +31,7 @@ const AdvancedHome = () => {
       description: "Round-the-clock assistance",
     },
     {
-      number: "5★",
+      number: "4.8★",
       label: "Customer Rating",
       icon: <FaStar style={{ color: "#00f5ff", fontSize: "2.5rem" }} />,
       description: "Consistently excellent service",
@@ -55,7 +55,7 @@ const AdvancedHome = () => {
     },
     {
       icon: <FaMusic style={{ color: "#7c3aed", fontSize: "1rem" }} />,
-      title: "Commercial Audio Video",
+      title: "Commercial, Residential Audio & Video Solutions",
       description:
         "Complete audio-visual installation and management for businesses, conferences, events, and commercial spaces.",
       image:

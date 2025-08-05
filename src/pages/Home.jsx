@@ -24,7 +24,7 @@ function Home() {
     },
     {
       icon: "Audio/Video",
-      title: "Commercial Audio Video",
+      title: "Commercial, Residential Audio & Video",
       description:
         "Complete audio-visual installation and management for businesses, conferences, events, and commercial spaces throughout Ontario.",
     },
@@ -87,7 +87,7 @@ function Home() {
     {
       icon: <FaStar style={{ color: "#00f5ff", fontSize: "2.5rem" }} />,
       title: "Rating",
-      value: "5",
+      value: "4.8",
       subtitle: "Customer Rating",
       description: "Consistently excellent service",
     },
@@ -291,7 +291,7 @@ function Home() {
             <div className="gallery-item">
               <img
                 src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&h=400&fit=crop&crop=center"
-                alt="Commercial Audio Video System"
+                alt="Commercial, Residential Audio & Video System"
                 className="gallery-image"
               />
               <div className="gallery-overlay">

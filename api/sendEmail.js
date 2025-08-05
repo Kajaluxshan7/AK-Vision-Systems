@@ -135,22 +135,46 @@ export default async function handler(req, res) {
     from: process.env.GMAIL_USER,
     to: "thavamkajan2000@gmail.com",
     subject: `New Contact Request: ${sanitizedData.service}`,
-    text: `You have received a new contact request:
-
-Name: ${sanitizedData.name}
-Email: ${sanitizedData.email}
-Phone: ${sanitizedData.phone || "Not provided"}
-Company: ${sanitizedData.company || "Not provided"}
-Service: ${sanitizedData.service}
-Urgency: ${sanitizedData.urgency || "Not specified"}
-
-Message:
-${sanitizedData.message}
-
-Client IP: ${clientIP}
-Timestamp: ${new Date().toISOString()}
-
-Please respond promptly.`,
+    html: `
+      <div style="background: linear-gradient(135deg, #0a0f1c 0%, #1a2347 50%, #0a0f1c 100%); padding: 40px 0; font-family: 'Segoe UI', 'Roboto', Arial, sans-serif; color: #fff;">
+        <div style="max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.05); border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); overflow: hidden;">
+          <div style="background: linear-gradient(135deg, #00f5ff, #7c3aed); padding: 32px 0 16px 0; text-align: center;">
+            <img src='https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png' alt='AK Vision Logo' style='height: 60px; margin-bottom: 16px;'/>
+            <h1 style="margin: 0; font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #00f5ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: #00f5ff;">AK Vision Contact Request</h1>
+          </div>
+          <div style="padding: 32px;">
+            <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; color: #00f5ff;">Contact Details</h2>
+            <table style="width: 100%; margin-bottom: 24px; border-collapse: collapse;">
+              <tr><td style="padding: 8px 0; font-weight: 500;">Name:</td><td style="padding: 8px 0;">${
+                sanitizedData.name
+              }</td></tr>
+              <tr><td style="padding: 8px 0; font-weight: 500;">Email:</td><td style="padding: 8px 0;">${
+                sanitizedData.email
+              }</td></tr>
+              <tr><td style="padding: 8px 0; font-weight: 500;">Phone:</td><td style="padding: 8px 0;">${
+                sanitizedData.phone || "Not provided"
+              }</td></tr>
+              <tr><td style="padding: 8px 0; font-weight: 500;">Company:</td><td style="padding: 8px 0;">${
+                sanitizedData.company || "Not provided"
+              }</td></tr>
+              <tr><td style="padding: 8px 0; font-weight: 500;">Service:</td><td style="padding: 8px 0;">${
+                sanitizedData.service
+              }</td></tr>
+              <tr><td style="padding: 8px 0; font-weight: 500;">Urgency:</td><td style="padding: 8px 0;">${
+                sanitizedData.urgency || "Not specified"
+              }</td></tr>
+            </table>
+            <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: #7c3aed;">Message</h2>
+            <div style="background: rgba(124,58,237,0.08); border-radius: 12px; padding: 16px; color: #fff; margin-bottom: 24px;">${
+              sanitizedData.message
+            }</div>
+            <div style="font-size: 0.95rem; color: #aaa; margin-bottom: 8px;">Client IP: ${clientIP}</div>
+            <div style="font-size: 0.95rem; color: #aaa; margin-bottom: 8px;">Timestamp: ${new Date().toLocaleString()}</div>
+            <div style="margin-top: 24px; text-align: center; color: #7c3aed; font-size: 1rem;">Please respond promptly.</div>
+          </div>
+        </div>
+      </div>
+    `,
   };
 
   try {

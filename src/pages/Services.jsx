@@ -38,7 +38,7 @@ function Services() {
     {
       id: "audio-video",
       icon: "Audio/Video",
-      title: "Commercial Audio Video Installation",
+      title: "Commercial, Residential Audio & Video Installation",
       subtitle: "Professional AV Solutions",
       description:
         "Complete audio-visual systems for conferences, events, retail spaces, restaurants, and commercial facilities.",
