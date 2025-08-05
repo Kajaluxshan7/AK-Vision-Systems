@@ -135,11 +135,10 @@ export default async function handler(req, res) {
     auth: {
       user: process.env.GMAIL_USER,
       pass: process.env.GMAIL_PASS,
-    },
     secure: true,
     tls: {
       rejectUnauthorized: true,
-    },
+    }
   });
 
   // Modern HTML email template
