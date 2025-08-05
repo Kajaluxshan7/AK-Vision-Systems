@@ -55,7 +55,7 @@ function Home() {
   ];
 
   const stats = [
-    { number: "500+", label: "Projects Completed" },
+    { number: "3000+", label: "Projects Completed" },
     { number: "100+", label: "Happy Clients" },
     { number: "5+", label: "Years Experience" },
     { number: "24/7", label: "Support Available" },
@@ -66,7 +66,7 @@ function Home() {
     {
       icon: <FaTasks style={{ color: "#00f5ff", fontSize: "2.5rem" }} />,
       title: "Projects",
-      value: "500+",
+      value: "3000+",
       subtitle: "Projects Completed",
       description: "Successfully delivered across Canada",
     },

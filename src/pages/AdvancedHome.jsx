@@ -13,7 +13,7 @@ import {
 const AdvancedHome = () => {
   const stats = [
     {
-      number: "500+",
+      number: "3000+",
       label: "Projects Completed",
       icon: <FaTasks style={{ color: "#00f5ff", fontSize: "2.5rem" }} />,
       description: "Successfully delivered across Canada",

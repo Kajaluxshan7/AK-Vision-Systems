@@ -224,7 +224,7 @@ const SimpleEnhancedHome = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <h3>500+</h3>
+            <h3>3000+</h3>
             <p>Installations</p>
           </motion.div>
           <motion.div
