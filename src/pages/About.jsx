@@ -44,8 +44,7 @@ const AdvancedAbout = () => {
     {
       name: "Jana",
       role: "Founder & CEO",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&auto=format",
+      image: "/Images/avatars/avatar.png",
       bio: "Over 9 years of experience in CCTV installation and commercial, residential audio & video system installation and management.",
       specialties: [
         "CCTV Installation",
@@ -318,6 +317,7 @@ const AdvancedAbout = () => {
               gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
               gap: "3rem",
               alignItems: "center",
+              textAlign: "center",
             }}
           >
             <motion.div
