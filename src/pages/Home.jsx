@@ -1,509 +1,886 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaTasks, FaCloud, FaHeadset, FaStar } from "react-icons/fa";
+import {
+  FaShieldAlt,
+  FaMusic,
+  FaBullhorn,
+  FaMobileAlt,
+  FaUtensils,
+  FaChartLine,
+} from "react-icons/fa";
 
-function Home() {
-  // Function to get service images from Unsplash - Security and CCTV focused
-  const getServiceImage = (index) => {
-    const images = [
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=250&fit=crop&crop=center", // Security cameras
-      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=250&fit=crop&crop=center", // Audio video conference room
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center", // Digital marketing analytics
-      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=400&h=250&fit=crop&crop=center", // Social media on devices
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop&crop=center", // Technology/ordering system
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop&crop=center", // Business strategy meeting
-    ];
-    return images[index] || images[0];
-  };
-
-  const services = [
-    {
-      icon: "Security",
-      title: "CCTV & Security Systems",
-      description:
-        "Professional surveillance solutions with HD cameras, remote monitoring, and 24/7 security coverage for commercial and residential properties in Ontario.",
-    },
-    {
-      icon: "Audio/Video",
-      title: "Commercial, Residential Audio & Video",
-      description:
-        "Complete audio-visual installation and management for businesses, conferences, events, and commercial spaces throughout Ontario.",
-    },
-    {
-      icon: "Marketing",
-      title: "Digital Marketing",
-      description:
-        "Comprehensive digital marketing strategies including SEO, PPC, content marketing, and online brand development.",
-    },
-    {
-      icon: "Social Media",
-      title: "Social Media Management",
-      description:
-        "Expert social media handling and marketing across all platforms to boost your online presence and engagement.",
-    },
-    {
-      icon: "Technology",
-      title: "Online Food Ordering Systems",
-      description:
-        "Custom online food ordering system platforms and management systems to streamline your restaurant's digital operations.",
-    },
-    {
-      icon: "Strategy",
-      title: "Brand Strategy & Marketing",
-      description:
-        "Complete marketing solutions from brand development to campaign execution, tailored for Canadian businesses.",
-    },
-  ];
-
+const AdvancedHome = () => {
   const stats = [
-    { number: "3000+", label: "Projects Completed" },
-    { number: "100+", label: "Happy Clients" },
-    { number: "5+", label: "Years Experience" },
-    { number: "24/7", label: "Support Available" },
-  ];
-
-  // Add new business stats section
-  const businessStats = [
     {
+      number: "3000+",
+      label: "Projects Completed",
       icon: <FaTasks style={{ color: "#00f5ff", fontSize: "2.5rem" }} />,
-      title: "Projects",
-      value: "3000+",
-      subtitle: "Projects Completed",
       description: "Successfully delivered across Canada",
     },
     {
+      number: "99.9%",
+      label: "Uptime Guarantee",
       icon: <FaCloud style={{ color: "#00f5ff", fontSize: "2.5rem" }} />,
-      title: "Uptime",
-      value: "99.9%",
-      subtitle: "Uptime Guarantee",
       description: "Industry-leading reliability",
     },
     {
+      number: "24/7",
+      label: "Support Available",
       icon: <FaHeadset style={{ color: "#00f5ff", fontSize: "2.5rem" }} />,
-      title: "Support",
-      value: "24/7",
-      subtitle: "Support Available",
       description: "Round-the-clock assistance",
     },
     {
+      number: "4.8★",
+      label: "Customer Rating",
       icon: <FaStar style={{ color: "#00f5ff", fontSize: "2.5rem" }} />,
-      title: "Rating",
-      value: "4.8",
-      subtitle: "Customer Rating",
       description: "Consistently excellent service",
     },
   ];
 
+  const services = [
+    {
+      icon: <FaShieldAlt style={{ color: "#00f5ff", fontSize: "1rem" }} />,
+      title: "CCTV & Security Systems",
+      description:
+        "Professional surveillance solutions with HD cameras, remote monitoring, and 24/7 security coverage for commercial and residential properties.",
+      image:
+        "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=250&fit=crop&crop=center",
+      features: [
+        "HD Camera Installation",
+        "Remote Monitoring",
+        "24/7 Support",
+        "Cloud Storage",
+      ],
+    },
+    {
+      icon: <FaMusic style={{ color: "#7c3aed", fontSize: "1rem" }} />,
+      title: "Commercial, Residential Audio & Video Solutions",
+      description:
+        "Complete audio-visual installation and management for businesses, conferences, events, and commercial spaces.",
+      image:
+        "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=250&fit=crop&crop=center", // Audio mixing console
+      features: [
+        "Conference Systems",
+        "Event AV",
+        "Installation",
+        "Maintenance",
+      ],
+    },
+    {
+      icon: <FaBullhorn style={{ color: "#00f5ff", fontSize: "1rem" }} />,
+      title: "Digital Marketing",
+      description:
+        "Comprehensive digital marketing strategies including SEO, PPC, content marketing, and online brand development.",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center",
+      features: [
+        "SEO Optimization",
+        "PPC Campaigns",
+        "Content Marketing",
+        "Analytics",
+      ],
+    },
+    {
+      icon: <FaMobileAlt style={{ color: "#10b981", fontSize: "1rem" }} />,
+      title: "Social Media Management",
+      description:
+        "Expert social media handling and marketing across all platforms to boost your online presence and engagement.",
+      image:
+        "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=400&h=250&fit=crop&crop=center", // Social media on mobile
+      features: [
+        "Content Creation",
+        "Community Management",
+        "Ad Campaigns",
+        "Analytics",
+      ],
+    },
+    {
+      icon: <FaUtensils style={{ color: "#00f5ff", fontSize: "1rem" }} />,
+      title: "Online Food Ordering System",
+      description:
+        "Custom online food ordering system platforms and management systems to streamline your restaurant's digital operations.",
+      image:
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop&crop=center",
+      features: [
+        "Custom Platform",
+        "Order Management",
+        "Payment Integration",
+        "Analytics",
+      ],
+    },
+    {
+      icon: <FaChartLine style={{ color: "#7c3aed", fontSize: "1rem" }} />,
+      title: "Brand Strategy & Marketing",
+      description:
+        "Strategic brand development, market analysis, and comprehensive marketing solutions for business growth.",
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop&crop=center",
+      features: [
+        "Brand Development",
+        "Market Analysis",
+        "Strategy Planning",
+        "Implementation",
+      ],
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Sripathy Paramalingam",
+      company: "",
+      image: "/Images/avatars/avatar.png", // Local avatar
+      text: "We’re very happy with the service. Great customer service, very friendly.",
+      rating: 5,
+      service: "General Service",
+    },
+    {
+      name: "Jeyanth Thangarasa",
+      company: "",
+      image: "/Images/avatars/avatar.png", // Local avatar
+      text: "Excellent service and support!", // Added an appropriate comment
+      rating: 5,
+      service: "General Service",
+    },
+    {
+      name: "Kajaluxshan Thavaligam",
+      company: "",
+      image: "/Images/avatars/avatar.png", // Local avatar
+      text: "I'm truly happy with your helpful and friendly service.",
+      rating: 5,
+      service: "General Service",
+    },
+  ];
+
   return (
-    <div className="home">
+    <div
+      style={{
+        background:
+          "linear-gradient(135deg, #0a0f1c 0%, #1a2347 50%, #0a0f1c 100%)",
+        minHeight: "100vh",
+      }}
+    >
       {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-background">
-          <img
-            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=600&fit=crop&crop=center"
-            alt="Professional CCTV Security Systems"
-            className="hero-bg-image"
-          />
-          <div className="hero-overlay"></div>
-        </div>
-        <div className="container">
-          <div className="hero-content">
-            <h1>Professional Security & Technology Solutions</h1>
-            <p>
-              AK Vision Systems specializes in professional CCTV installation,
-              commercial security systems, and comprehensive digital marketing
-              services throughout Ontario. Protecting your business is our
-              mission.
-            </p>
-            <div className="cta-buttons">
-              <Link to="/services" className="btn btn-primary">
-                Explore Security Solutions
-              </Link>
-              <Link to="/contact" className="btn btn-secondary">
-                Get Free Security Assessment
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section
+        style={{
+          padding: "120px 2rem 4rem",
+          textAlign: "center",
+          background: `
+          radial-gradient(circle at 50% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 40%, rgba(16, 245, 74, 0.05) 0%, transparent 50%)
+        `,
+        }}
+      >
+        <div
+          className="container"
+          style={{ maxWidth: "1280px", margin: "0 auto" }}
+        >
+          <motion.h1
+            style={{
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              fontWeight: "800",
+              background:
+                "linear-gradient(135deg, #00f5ff 0%, #7c3aed 50%, #10f54a 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              marginBottom: "1.5rem",
+              lineHeight: 1.1,
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Next-Generation Technology Solutions
+          </motion.h1>
 
-      {/* Services Overview */}
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title">Our Core Services</h2>
-          <p className="section-subtitle">
-            From security systems to digital marketing, we provide comprehensive
-            solutions to help your business thrive in the digital age.
-          </p>
+          <motion.p
+            style={{
+              fontSize: "clamp(1.1rem, 2vw, 1.4rem)",
+              color: "rgba(255, 255, 255, 0.9)",
+              maxWidth: "800px",
+              margin: "0 auto 3rem",
+              lineHeight: 1.6,
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Transforming businesses across Canada with cutting-edge security
+            systems, digital marketing excellence, and innovative technology
+            solutions that drive growth.
+          </motion.p>
 
-          <div className="services-grid">
-            {services.map((service, index) => (
-              <div key={index} className="service-card">
-                <div className="service-image-container">
-                  <img
-                    src={getServiceImage(index)}
-                    alt={service.title}
-                    className="service-image"
-                  />
-                  <div className="service-overlay">
-                    <div className="service-icon">
-                      <span>{service.icon}</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="service-content">
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <Link to="/services" className="service-link">
-                    Learn More →
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+          <motion.div
+            style={{
+              display: "flex",
+              gap: "1.5rem",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              marginBottom: "4rem",
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <Link to="/contact" style={{ textDecoration: "none" }}>
+              <motion.button
+                style={{
+                  background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
+                  color: "white",
+                  border: "none",
+                  padding: "1rem 2.5rem",
+                  borderRadius: "50px",
+                  fontSize: "1.1rem",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  boxShadow: "0 8px 32px rgba(0, 245, 255, 0.3)",
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 12px 40px rgba(0, 245, 255, 0.4)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Free Consultation
+              </motion.button>
+            </Link>
+
+            <Link to="/services" style={{ textDecoration: "none" }}>
+              <motion.button
+                style={{
+                  background: "rgba(255, 255, 255, 0.1)",
+                  color: "white",
+                  border: "2px solid #00f5ff",
+                  padding: "1rem 2.5rem",
+                  borderRadius: "50px",
+                  fontSize: "1.1rem",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  background: "rgba(0, 245, 255, 0.1)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View Services
+              </motion.button>
+            </Link>
+          </motion.div>
+
+          {/* Hero Image */}
+          <motion.div
+            style={{
+              maxWidth: "900px",
+              margin: "0 auto",
+              borderRadius: "20px",
+              overflow: "hidden",
+              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.3)",
+              border: "1px solid rgba(0, 245, 255, 0.2)",
+            }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&h=500&fit=crop&auto=format"
+              alt="AK Vision Systems - Advanced Security & Technology Solutions"
+              style={{
+                width: "100%",
+                height: "400px",
+                objectFit: "cover",
+              }}
+            />
+          </motion.div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="stats-section">
-        <div className="container">
-          <h2 className="section-title">Our Track Record</h2>
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-item">
-                <span className="stat-number">{stat.number}</span>
-                <span className="stat-label">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title">Why Choose AK Vision Systems?</h2>
-          <div className="services-grid">
-            <div className="service-card">
-              <div className="service-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                </svg>
-              </div>
-              <h3>Ontario Expertise</h3>
-              <p>
-                Deep understanding of Ontario business needs and security
-                regulations, serving businesses throughout the province with
-                local expertise.
-              </p>
-            </div>
-            <div className="service-card">
-              <div className="service-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M7 2v11h3v9l7-12h-4l3-8z" />
-                </svg>
-              </div>
-              <h3>Rapid Response</h3>
-              <p>
-                Quick deployment and 24/7 emergency support ensure your security
-                systems are always operational when you need them most.
-              </p>
-            </div>
-            <div className="service-card">
-              <div className="service-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z" />
-                </svg>
-              </div>
-              <h3>Complete Security Solutions</h3>
-              <p>
-                From CCTV installation to ongoing maintenance and monitoring, we
-                handle everything so you can focus on your business security.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Security Solutions Showcase */}
-      <section className="section" style={{ background: "#f8f9fa" }}>
-        <div className="container">
-          <h2 className="section-title">Our Security Solutions in Action</h2>
-          <p
-            style={{
-              textAlign: "center",
-              marginBottom: "3rem",
-              fontSize: "1.1rem",
-              color: "#6c757d",
-            }}
-          >
-            See how we&apos;ve helped businesses across Ontario secure their
-            properties and operations
-          </p>
-          <div className="gallery-grid">
-            <div className="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop&crop=center"
-                alt="Professional CCTV Camera Installation"
-                className="gallery-image"
-              />
-              <div className="gallery-overlay">
-                <h4>Professional CCTV Installation</h4>
-                <p>HD cameras with remote monitoring capabilities</p>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1586210527576-8e312a6e72c0?w=600&h=400&fit=crop&crop=center"
-                alt="Security Control Room"
-                className="gallery-image"
-              />
-              <div className="gallery-overlay">
-                <h4>24/7 Monitoring Center</h4>
-                <p>Round-the-clock security surveillance</p>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1558618644-fcd25c85cd64?w=600&h=400&fit=crop&crop=center"
-                alt="Access Control System"
-                className="gallery-image"
-              />
-              <div className="gallery-overlay">
-                <h4>Access Control Systems</h4>
-                <p>Secure entry and visitor management</p>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&h=400&fit=crop&crop=center"
-                alt="Commercial, Residential Audio & Video System"
-                className="gallery-image"
-              />
-              <div className="gallery-overlay">
-                <h4>Commercial AV Systems</h4>
-                <p>Professional audio-visual installations</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="section testimonials-section">
-        <div className="container">
-          <h2 className="section-title">What Our Clients Say</h2>
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="stars">⭐⭐⭐⭐⭐</div>
-                <p>
-                  AK Vision transformed our business with their online ordering
-                  system. Sales increased by 40% in just 3 months!
-                </p>
-                <div className="testimonial-author">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face"
-                    alt="Mike Chen - Business Owner"
-                    className="author-image"
-                  />
-                  <div>
-                    <h4>Mike Chen</h4>
-                    <span>Business Owner, Toronto, ON</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="stars">⭐⭐⭐⭐⭐</div>
-                <p>
-                  "Their CCTV installation was professional and the remote
-                  monitoring gives us peace of mind 24/7."
-                </p>
-                <div className="testimonial-author">
-                  <img
-                    src="https://images.unsplash.com/photo-1494790108755-2616b1e41f42?w=60&h=60&fit=crop&crop=face"
-                    alt="Sarah Johnson - Retail Manager"
-                    className="author-image"
-                  />
-                  <div>
-                    <h4>Sarah Johnson</h4>
-                    <span>Retail Manager, Ottawa, ON</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="stars">⭐⭐⭐⭐⭐</div>
-                <p>
-                  "Outstanding digital marketing results! Our online presence
-                  and lead generation improved dramatically."
-                </p>
-                <div className="testimonial-author">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face"
-                    alt="David Williams - Business Owner"
-                    className="author-image"
-                  />
-                  <div>
-                    <h4>David Williams</h4>
-                    <span>Business Owner, Hamilton, ON</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Stats Section */}
       <section
-        className="business-stats-section"
-        style={{ background: "#101a2b", padding: "3rem 0" }}
+        style={{
+          padding: "4rem 2rem",
+          background: "rgba(255, 255, 255, 0.02)",
+        }}
       >
         <div
           className="container"
-          style={{ maxWidth: "1440px", margin: "0 auto" }}
+          style={{ maxWidth: "1280px", margin: "0 auto" }}
         >
-          <h2
+          <motion.h2
             style={{
-              color: "#00f5ff",
-              fontWeight: 700,
-              fontSize: "2rem",
+              fontSize: "2.5rem",
+              fontWeight: "700",
               textAlign: "center",
-              marginBottom: "2.5rem",
+              background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              marginBottom: "3rem",
             }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-              }}
-            >
-              <span
-                style={{
-                  width: 18,
-                  height: 18,
-                  background: "#00f5ff",
-                  borderRadius: 4,
-                  display: "inline-block",
-                }}
-              ></span>
-              Trusted by Hundreds of Businesses
-            </span>
-          </h2>
+            📈 Trusted by Hundreds of Businesses
+          </motion.h2>
+
           <div
             style={{
-              display: "flex",
-              flexWrap: "wrap",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               gap: "2rem",
-              justifyContent: "center",
             }}
           >
-            {businessStats.map((stat, idx) => (
-              <div
-                key={idx}
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
                 style={{
-                  background: "#181f36",
-                  borderRadius: "18px",
-                  boxShadow: "0 4px 24px rgba(0,245,255,0.08)",
-                  padding: "2.5rem 2rem",
-                  minWidth: 220,
-                  maxWidth: 300,
-                  flex: "1 1 220px",
+                  background: "rgba(255, 255, 255, 0.05)",
+                  border: "1px solid rgba(0, 245, 255, 0.2)",
+                  borderRadius: "20px",
+                  padding: "2rem",
                   textAlign: "center",
-                  border:
-                    idx === 0 ? "2px solid #00f5ff" : "2px solid transparent",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.05,
+                  borderColor: "#00f5ff",
+                  boxShadow: "0 0 30px rgba(0, 245, 255, 0.3)",
                 }}
               >
-                <div style={{ marginBottom: "1.2rem" }}>{stat.icon}</div>
                 <div
                   style={{
-                    fontSize: "1.5rem",
-                    color: "#222",
-                    fontWeight: 600,
-                    marginBottom: "0.5rem",
-                    letterSpacing: "1px",
-                    color: "#fff",
+                    fontSize: "3rem",
+                    marginBottom: "1rem",
                   }}
                 >
-                  {stat.title}
+                  {stat.icon}
                 </div>
-                <div
+                <h3
                   style={{
-                    fontSize: "2.2rem",
-                    fontWeight: 700,
+                    fontSize: "2.5rem",
+                    fontWeight: "700",
                     color: "#00f5ff",
                     marginBottom: "0.5rem",
                   }}
                 >
-                  {stat.value}
-                </div>
-                <div
+                  {stat.number}
+                </h3>
+                <h4
                   style={{
-                    fontWeight: 600,
-                    color: "#fff",
+                    fontSize: "1.2rem",
+                    fontWeight: "600",
+                    color: "white",
                     marginBottom: "0.5rem",
                   }}
                 >
-                  {stat.subtitle}
-                </div>
-                <div
+                  {stat.label}
+                </h4>
+                <p
                   style={{
-                    color: "#b3c2e0",
-                    fontSize: "1rem",
+                    color: "rgba(255, 255, 255, 0.7)",
+                    fontSize: "0.9rem",
                   }}
                 >
                   {stat.description}
-                </div>
-              </div>
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="hero" style={{ padding: "4rem 0" }}>
-        <div className="container">
-          <div className="hero-content">
-            <h2 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
-              Ready to Secure Your Business?
+      {/* Services Preview */}
+      <section style={{ padding: "4rem 2rem" }}>
+        <div
+          className="container"
+          style={{ maxWidth: "1280px", margin: "0 auto" }}
+        >
+          <motion.div
+            style={{ textAlign: "center", marginBottom: "4rem" }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: "700",
+                background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                marginBottom: "1rem",
+              }}
+            >
+              🔧 Our Expert Services
             </h2>
-            <p>
-              Let&apos;s discuss how our security and technology solutions can
-              protect your business and help you achieve your goals. Get a free
-              security assessment today.
+            <p
+              style={{
+                fontSize: "1.2rem",
+                color: "rgba(255, 255, 255, 0.8)",
+                maxWidth: "600px",
+                margin: "0 auto",
+              }}
+            >
+              Comprehensive technology solutions designed to transform your
+              business operations
             </p>
-            <div className="cta-buttons">
-              <Link to="/contact" className="btn btn-primary">
-                Schedule Security Consultation
-              </Link>
-              <a href="tel:+14165084636" className="btn btn-secondary">
-                Call Now: +1 (416) 508-4636
-              </a>
-            </div>
+          </motion.div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
+              gap: "2rem",
+            }}
+          >
+            {services.slice(0, 6).map((service, index) => (
+              <motion.div
+                key={service.title}
+                style={{
+                  background: "rgba(255, 255, 255, 0.05)",
+                  border: "1px solid rgba(0, 245, 255, 0.2)",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.02,
+                  borderColor: "#00f5ff",
+                }}
+              >
+                <div
+                  style={{
+                    height: "200px",
+                    overflow: "hidden",
+                    position: "relative",
+                  }}
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "15px",
+                      left: "15px",
+                      width: "60px",
+                      height: "60px",
+                      background: "rgba(0, 245, 255, 0.2)",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "1.5rem",
+                      backdropFilter: "blur(10px)",
+                      WebkitBackdropFilter: "blur(10px)",
+                    }}
+                  >
+                    {service.icon}
+                  </div>
+                </div>
+
+                <div style={{ padding: "2rem" }}>
+                  <h3
+                    style={{
+                      fontSize: "1.3rem",
+                      fontWeight: "600",
+                      color: "#00f5ff",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    {service.title}
+                  </h3>
+
+                  <p
+                    style={{
+                      color: "rgba(255, 255, 255, 0.8)",
+                      lineHeight: 1.6,
+                      marginBottom: "1.5rem",
+                    }}
+                  >
+                    {service.description}
+                  </p>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "0.5rem",
+                      marginBottom: "1.5rem",
+                    }}
+                  >
+                    {service.features.map((feature) => (
+                      <span
+                        key={feature}
+                        style={{
+                          background: "rgba(124, 58, 237, 0.2)",
+                          color: "#7c3aed",
+                          padding: "0.3rem 0.8rem",
+                          borderRadius: "15px",
+                          fontSize: "0.8rem",
+                          fontWeight: "500",
+                        }}
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link to="/services" style={{ textDecoration: "none" }}>
+                    <motion.button
+                      style={{
+                        background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
+                        color: "white",
+                        border: "none",
+                        padding: "0.8rem 1.5rem",
+                        borderRadius: "25px",
+                        fontSize: "0.9rem",
+                        fontWeight: "600",
+                        cursor: "pointer",
+                        width: "100%",
+                      }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Learn More →
+                    </motion.button>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </div>
+
+          <motion.div
+            style={{ textAlign: "center", marginTop: "3rem" }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Link to="/services" style={{ textDecoration: "none" }}>
+              <motion.button
+                style={{
+                  background: "rgba(255, 255, 255, 0.1)",
+                  color: "white",
+                  border: "2px solid #00f5ff",
+                  padding: "1rem 2rem",
+                  borderRadius: "50px",
+                  fontSize: "1.1rem",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  background: "rgba(0, 245, 255, 0.1)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View All Services
+              </motion.button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section
+        style={{
+          padding: "4rem 2rem",
+          background: "rgba(255, 255, 255, 0.02)",
+        }}
+      >
+        <div
+          className="container"
+          style={{ maxWidth: "1280px", margin: "0 auto" }}
+        >
+          <motion.h2
+            style={{
+              fontSize: "2.5rem",
+              fontWeight: "700",
+              textAlign: "center",
+              background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              marginBottom: "3rem",
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            What Our Clients Say
+          </motion.h2>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "2rem",
+            }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                style={{
+                  background: "rgba(255, 255, 255, 0.05)",
+                  border: "1px solid rgba(0, 245, 255, 0.2)",
+                  borderRadius: "20px",
+                  padding: "2rem",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.02,
+                  borderColor: "#00f5ff",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    style={{
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "50%",
+                      marginRight: "1rem",
+                      border: "2px solid #00f5ff",
+                    }}
+                  />
+                  <div>
+                    <h4
+                      style={{
+                        color: "#00f5ff",
+                        fontSize: "1.1rem",
+                        fontWeight: "600",
+                        marginBottom: "0.2rem",
+                      }}
+                    >
+                      {testimonial.name}
+                    </h4>
+                    <p
+                      style={{
+                        color: "rgba(255, 255, 255, 0.7)",
+                        fontSize: "0.9rem",
+                      }}
+                    >
+                      {testimonial.company}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span
+                      key={i}
+                      style={{ color: "#ffd700", fontSize: "1.2rem" }}
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                    </span>
+                  ))}
+                </div>
+
+                <p
+                  style={{
+                    color: "rgba(255, 255, 255, 0.8)",
+                    lineHeight: 1.6,
+                    marginBottom: "1rem",
+                    fontStyle: "italic",
+                  }}
+                >
+                  &ldquo;{testimonial.text}&rdquo;
+                </p>
+
+                <span
+                  style={{
+                    background: "rgba(124, 58, 237, 0.2)",
+                    color: "#7c3aed",
+                    padding: "0.3rem 0.8rem",
+                    borderRadius: "15px",
+                    fontSize: "0.8rem",
+                    fontWeight: "500",
+                  }}
+                >
+                  {testimonial.service}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section
+        style={{
+          padding: "4rem 2rem",
+          textAlign: "center",
+          background: `
+          linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(124, 58, 237, 0.1)),
+          radial-gradient(circle at 50% 50%, rgba(0, 245, 255, 0.1) 0%, transparent 50%)
+        `,
+        }}
+      >
+        <div
+          className="container"
+          style={{ maxWidth: "800px", margin: "0 auto" }}
+        >
+          <motion.h2
+            style={{
+              fontSize: "2.5rem",
+              fontWeight: "700",
+              background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              marginBottom: "1.5rem",
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Ready to Transform Your Business?
+          </motion.h2>
+
+          <motion.p
+            style={{
+              fontSize: "1.2rem",
+              color: "rgba(255, 255, 255, 0.8)",
+              marginBottom: "2rem",
+              lineHeight: 1.6,
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Join hundreds of satisfied clients across Canada. Get your free
+            consultation and discover how we can elevate your business to the
+            next level.
+          </motion.p>
+
+          <motion.div
+            style={{
+              display: "flex",
+              gap: "1.5rem",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Link to="/contact" style={{ textDecoration: "none" }}>
+              <motion.button
+                style={{
+                  background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
+                  color: "white",
+                  border: "none",
+                  padding: "1rem 2rem",
+                  borderRadius: "50px",
+                  fontSize: "1.1rem",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 30px rgba(0, 245, 255, 0.5)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Free Consultation
+              </motion.button>
+            </Link>
+
+            <Link to="/about" style={{ textDecoration: "none" }}>
+              <motion.button
+                style={{
+                  background: "rgba(255, 255, 255, 0.1)",
+                  color: "white",
+                  border: "2px solid #00f5ff",
+                  padding: "1rem 2rem",
+                  borderRadius: "50px",
+                  fontSize: "1.1rem",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  background: "rgba(0, 245, 255, 0.1)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                🏢 Learn About Us
+              </motion.button>
+            </Link>
+          </motion.div>
         </div>
       </section>
     </div>
   );
-}
+};
 
-export default Home;
+export default AdvancedHome;

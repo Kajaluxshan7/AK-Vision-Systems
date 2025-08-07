@@ -1,4 +1,4 @@
-import AdvancedContactForm from "../components/AdvancedContactForm";
+import ContactForm from "../components/ContactForm";
 
 function Contact() {
   return (
@@ -40,7 +40,7 @@ function Contact() {
         >
           Get in Touch
         </h2>
-        <AdvancedContactForm />
+        <ContactForm />
       </div>
 
       {/* Full-Width Map Section */}

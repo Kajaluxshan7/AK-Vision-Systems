@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const AdvancedContactForm = () => {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -857,4 +857,4 @@ const AdvancedContactForm = () => {
   );
 };
 
-export default AdvancedContactForm;
+export default ContactForm;

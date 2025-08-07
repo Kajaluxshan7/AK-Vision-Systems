@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import AdvancedHome from "./pages/AdvancedHome";
-import AdvancedAbout from "./pages/AdvancedAbout";
+import AdvancedHome from "./pages/Home";
+import AdvancedAbout from "./pages/About";
 import ScrollToTop from "./components/ScrollToTop";
-import AdvancedServices from "./pages/AdvancedServices";
+import AdvancedServices from "./pages/Services";
 import Contact from "./pages/Contact";
-import AdvancedNavigation from "./components/AdvancedNavigation";
-import AdvancedFooterV2 from "./components/AdvancedFooterV2";
+import AdvancedNavigation from "./components/Navigation";
+import AdvancedFooterV2 from "./components/Footer";
 import MobileCallButton from "./components/MobileCallButton";
 import LoadingScreen from "./components/LoadingScreen";
 import "./App.css";
