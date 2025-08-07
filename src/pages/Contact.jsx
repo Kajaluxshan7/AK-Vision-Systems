@@ -1,4 +1,5 @@
 import ContactForm from "../components/ContactForm";
+import SEO from "../components/SEO";
 
 function Contact() {
   return (
@@ -11,10 +12,17 @@ function Contact() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        paddingLeft: "20px",
-        paddingRight: "20px",
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
       }}
     >
+      <SEO
+        title="Contact Us - Get Free Consultation"
+        description="Contact AK Vision Systems for professional CCTV installation, security solutions, and technology services. Get a free consultation and quote. Available 24/7 across Canada with expert support and installation."
+        keywords="contact AK Vision Systems, free consultation, CCTV quote, security installation, technology support Canada, akvisionsystems@gmail.com"
+        url="https://akvisionsystems.com/contact"
+      />
+
       {/* Contact Form Section */}
       <div
         style={{
@@ -31,7 +39,7 @@ function Contact() {
         <h2
           style={{
             color: "#00f5ff",
-            fontSize: "2rem",
+            fontSize: "clamp(1.5rem, 4vw, 2rem)",
             fontWeight: "700",
             marginBottom: "1.5rem",
             textAlign: "center",

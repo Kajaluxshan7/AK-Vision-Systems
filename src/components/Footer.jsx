@@ -87,7 +87,14 @@ const AdvancedFooterV2 = () => {
       >
         <div
           className="container"
-          style={{ maxWidth: "1250px", margin: "0 auto", padding: "0 2rem" }}
+          style={{
+            maxWidth: "1250px",
+            margin: "0 auto",
+            padding: "0 2rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
         >
           {/* Main Footer Content */}
           <div
@@ -96,6 +103,9 @@ const AdvancedFooterV2 = () => {
               gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
               gap: "1.5rem",
               marginBottom: "3rem",
+              justifyItems: "center",
+              alignItems: "center",
+              textAlign: "center",
             }}
           >
             {/* Company Info Section */}
@@ -109,7 +119,9 @@ const AdvancedFooterV2 = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   marginBottom: "1.5rem",
+                  gap: "1rem",
                 }}
               >
                 <div
@@ -120,7 +132,6 @@ const AdvancedFooterV2 = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    marginRight: "1rem",
                   }}
                 >
                   <img
@@ -135,7 +146,6 @@ const AdvancedFooterV2 = () => {
                 </div>
                 <h3
                   style={{
-                    marginLeft: "5px",
                     fontSize: "14px",
                     fontWeight: "700",
                     background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
@@ -176,6 +186,7 @@ const AdvancedFooterV2 = () => {
                     fontSize: "1.1rem",
                     fontWeight: "600",
                     marginBottom: "1.5rem",
+                    textAlign: "center",
                   }}
                 >
                   {section.title}
@@ -185,6 +196,7 @@ const AdvancedFooterV2 = () => {
                     listStyle: "none",
                     padding: 0,
                     margin: 0,
+                    textAlign: "center",
                   }}
                 >
                   {section.links.map((link, linkIndex) => (
@@ -255,9 +267,11 @@ const AdvancedFooterV2 = () => {
                     key={index}
                     style={{
                       display: "flex",
-                      alignItems: "flex-start",
+                      alignItems: "center",
+                      justifyContent: "center",
                       marginBottom: "0.8rem",
                       gap: "0.8rem",
+                      textAlign: "center",
                     }}
                   >
                     <span style={{ fontSize: "1.1rem" }}>{item.icon}</span>
@@ -323,6 +337,7 @@ const AdvancedFooterV2 = () => {
                       border: "1px solid rgba(0, 245, 255, 0.2)",
                       backdropFilter: "blur(10px)",
                       WebkitBackdropFilter: "blur(10px)",
+                      margin: "0 auto",
                     }}
                     whileHover={{
                       scale: 1.1,
@@ -381,16 +396,27 @@ const AdvancedFooterV2 = () => {
               @media (max-width: 768px) {
                 footer .container {
                   padding: 0 1rem;
+                  align-items: center !important;
                 }
                 footer div[style*="gridTemplateColumns"] {
                   grid-template-columns: 1fr;
                   gap: 1rem;
+                  justify-items: center;
+                  align-items: center;
+                  text-align: center;
                 }
                 footer h4 {
                   font-size: 1rem;
+                  text-align: center;
                 }
                 footer p, footer a {
                   font-size: 0.85rem;
+                  text-align: center;
+                }
+                footer div[style*="display: flex"] {
+                  justify-content: center !important;
+                  align-items: center !important;
+                  text-align: center !important;
                 }
               }
             `}

@@ -9,6 +9,7 @@ import {
   FaUtensils,
   FaChartLine,
 } from "react-icons/fa";
+import SEO from "../components/SEO";
 
 const AdvancedHome = () => {
   const stats = [
@@ -160,10 +161,17 @@ const AdvancedHome = () => {
         minHeight: "100vh",
       }}
     >
+      <SEO
+        title="AI-Powered CCTV & Security Solutions Canada"
+        description="Leading provider of AI-powered CCTV systems, smart security solutions, automated digital marketing, and cutting-edge technology services across Canada. Professional installation, 24/7 support, and innovative surveillance technology."
+        keywords="AI CCTV Canada, smart security systems, automated marketing, 3D security visualization, facial recognition, AI surveillance, intelligent monitoring, Canada security, CCTV installation, commercial security, residential security, audio video systems, digital marketing services"
+        url="https://akvisionsystems.com/"
+      />
+
       {/* Hero Section */}
       <section
         style={{
-          padding: "120px 2rem 4rem",
+          padding: "120px 1rem 4rem",
           textAlign: "center",
           background: `
           radial-gradient(circle at 50% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
@@ -174,7 +182,11 @@ const AdvancedHome = () => {
       >
         <div
           className="container"
-          style={{ maxWidth: "1280px", margin: "0 auto" }}
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "0 1rem",
+          }}
         >
           <motion.h1
             style={{
@@ -215,7 +227,7 @@ const AdvancedHome = () => {
           <motion.div
             style={{
               display: "flex",
-              gap: "1.5rem",
+              gap: "1rem",
               justifyContent: "center",
               flexWrap: "wrap",
               marginBottom: "4rem",
@@ -230,15 +242,17 @@ const AdvancedHome = () => {
                   background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
                   color: "white",
                   border: "none",
-                  padding: "1rem 2.5rem",
+                  padding: "0.875rem 1.5rem",
                   borderRadius: "50px",
-                  fontSize: "1.1rem",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
                   fontWeight: "600",
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
                   gap: "0.5rem",
                   boxShadow: "0 8px 32px rgba(0, 245, 255, 0.3)",
+                  minWidth: "160px",
+                  justifyContent: "center",
                 }}
                 whileHover={{
                   scale: 1.05,
@@ -256,9 +270,9 @@ const AdvancedHome = () => {
                   background: "rgba(255, 255, 255, 0.1)",
                   color: "white",
                   border: "2px solid #00f5ff",
-                  padding: "1rem 2.5rem",
+                  padding: "0.875rem 1.5rem",
                   borderRadius: "50px",
-                  fontSize: "1.1rem",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
                   fontWeight: "600",
                   cursor: "pointer",
                   display: "flex",
@@ -266,6 +280,8 @@ const AdvancedHome = () => {
                   gap: "0.5rem",
                   backdropFilter: "blur(10px)",
                   WebkitBackdropFilter: "blur(10px)",
+                  minWidth: "140px",
+                  justifyContent: "center",
                 }}
                 whileHover={{
                   scale: 1.05,
@@ -297,7 +313,7 @@ const AdvancedHome = () => {
               alt="AK Vision Systems - Advanced Security & Technology Solutions"
               style={{
                 width: "100%",
-                height: "400px",
+                height: "clamp(250px, 40vw, 400px)",
                 objectFit: "cover",
               }}
             />
@@ -308,17 +324,21 @@ const AdvancedHome = () => {
       {/* Stats Section */}
       <section
         style={{
-          padding: "4rem 2rem",
+          padding: "4rem 1rem",
           background: "rgba(255, 255, 255, 0.02)",
         }}
       >
         <div
           className="container"
-          style={{ maxWidth: "1280px", margin: "0 auto" }}
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "0 1rem",
+          }}
         >
           <motion.h2
             style={{
-              fontSize: "2.5rem",
+              fontSize: "clamp(1.8rem, 5vw, 2.5rem)",
               fontWeight: "700",
               textAlign: "center",
               background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
@@ -338,8 +358,8 @@ const AdvancedHome = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-              gap: "2rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gap: "1.5rem",
             }}
           >
             {stats.map((stat, index) => (
@@ -407,10 +427,14 @@ const AdvancedHome = () => {
       </section>
 
       {/* Services Preview */}
-      <section style={{ padding: "4rem 2rem" }}>
+      <section style={{ padding: "4rem 1rem" }}>
         <div
           className="container"
-          style={{ maxWidth: "1280px", margin: "0 auto" }}
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "0 1rem",
+          }}
         >
           <motion.div
             style={{ textAlign: "center", marginBottom: "4rem" }}
@@ -421,7 +445,7 @@ const AdvancedHome = () => {
           >
             <h2
               style={{
-                fontSize: "2.5rem",
+                fontSize: "clamp(1.8rem, 5vw, 2.5rem)",
                 fontWeight: "700",
                 background: "linear-gradient(135deg, #00f5ff, #7c3aed)",
                 WebkitBackgroundClip: "text",
@@ -434,7 +458,7 @@ const AdvancedHome = () => {
             </h2>
             <p
               style={{
-                fontSize: "1.2rem",
+                fontSize: "clamp(1rem, 3vw, 1.2rem)",
                 color: "rgba(255, 255, 255, 0.8)",
                 maxWidth: "600px",
                 margin: "0 auto",
@@ -448,8 +472,8 @@ const AdvancedHome = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-              gap: "2rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "1.5rem",
             }}
           >
             {services.slice(0, 6).map((service, index) => (

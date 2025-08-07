@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://akvisionsystems.com/sitemap.xml
+
+# Disallow certain file types
+Disallow: *.json$
+Disallow: *.map$
+
+# Performance optimizations
+Crawl-delay: 1

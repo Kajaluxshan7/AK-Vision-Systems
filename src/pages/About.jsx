@@ -10,6 +10,7 @@ import {
   FaGem,
   FaSatelliteDish,
 } from "react-icons/fa";
+import SEO from "../components/SEO";
 
 const AdvancedAbout = () => {
   const stats = [
@@ -118,7 +119,6 @@ const AdvancedAbout = () => {
     },
   ];
 
-
   return (
     <div
       style={{
@@ -128,10 +128,17 @@ const AdvancedAbout = () => {
         paddingTop: "100px",
       }}
     >
+      <SEO
+        title="About Us - Professional Security & Technology Experts"
+        description="Learn about AK Vision Systems, Canada's leading provider of AI-powered CCTV systems and technology solutions. Over 9 years of experience serving 3000+ clients with 99.9% uptime guarantee and 24/7 support."
+        keywords="AK Vision Systems about, security company Canada, CCTV installation experts, technology solutions provider, Jana founder CEO, security professionals"
+        url="https://akvisionsystems.com/about"
+      />
+
       {/* Hero Section */}
       <section
         style={{
-          padding: "4rem 2rem",
+          padding: "4rem 1rem",
           textAlign: "center",
           background: `
           radial-gradient(circle at 50% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
@@ -141,7 +148,11 @@ const AdvancedAbout = () => {
       >
         <div
           className="container"
-          style={{ maxWidth: "1280px", margin: "0 auto" }}
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "0 1rem",
+          }}
         >
           <motion.h1
             style={{
@@ -751,7 +762,7 @@ const AdvancedAbout = () => {
                 fontSize: "2rem",
                 marginRight: "0.5rem",
               }}
-            />{' '}
+            />{" "}
             Our Journey
           </motion.h2>
 

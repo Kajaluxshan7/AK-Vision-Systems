@@ -1,5 +1,26 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaShieldAlt,
+  FaMusic,
+  FaMobileAlt,
+  FaGlobe,
+  FaLightbulb,
+} from "react-icons/fa";
+import {
+  MdOutlineEmergency,
+  MdOutlineAccessTime,
+  MdOutlineFlashOn,
+  MdOutlineAssignment,
+  MdOutlineEmail,
+  MdOutlinePhone,
+  MdOutlineBusiness,
+  MdOutlineArrowForward,
+  MdOutlineGpsFixed,
+  MdOutlineChat,
+  MdOutlineArrowBack,
+  MdOutlinePerson,
+} from "react-icons/md";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -103,32 +124,56 @@ const ContactForm = () => {
   const services = [
     {
       value: "cctv",
-      label: "🛡️ CCTV & Security Systems",
+      label: (
+        <>
+          <FaShieldAlt /> CCTV & Security Systems
+        </>
+      ),
       desc: "Professional surveillance solutions",
     },
     {
       value: "audio-video",
-      label: "🎵 Audio Video Installation",
+      label: (
+        <>
+          <FaMusic /> Audio Video Installation
+        </>
+      ),
       desc: "Commercial AV systems",
     },
     {
       value: "digital-marketing",
-      label: "📱 Digital Marketing",
+      label: (
+        <>
+          <FaMobileAlt /> Digital Marketing
+        </>
+      ),
       desc: "Online presence management",
     },
     {
       value: "social-media",
-      label: "📲 Social Media Management",
+      label: (
+        <>
+          <FaMobileAlt /> Social Media Management
+        </>
+      ),
       desc: "Strategic social presence",
     },
     {
       value: "web-development",
-      label: "🌐 Web Development",
+      label: (
+        <>
+          <FaGlobe /> Web Development
+        </>
+      ),
       desc: "Custom website solutions",
     },
     {
       value: "consultation",
-      label: "💡 Consultation",
+      label: (
+        <>
+          <FaLightbulb /> Consultation
+        </>
+      ),
       desc: "Expert advice and planning",
     },
   ];
@@ -136,19 +181,31 @@ const ContactForm = () => {
   const urgencyLevels = [
     {
       value: "low",
-      label: "🕐 Standard",
+      label: (
+        <>
+          <MdOutlineAccessTime /> Standard
+        </>
+      ),
       desc: "Response within 48 hours",
       color: "#00d084",
     },
     {
       value: "medium",
-      label: "⚡ Urgent",
+      label: (
+        <>
+          <MdOutlineFlashOn /> Urgent
+        </>
+      ),
       desc: "Response within 24 hours",
       color: "#ffb800",
     },
     {
       value: "high",
-      label: "🚨 Emergency",
+      label: (
+        <>
+          <MdOutlineEmergency /> Emergency
+        </>
+      ),
       desc: "Response within 4 hours",
       color: "#ff4757",
     },
@@ -179,7 +236,8 @@ const ContactForm = () => {
         </motion.div>
         <h3 style={{ color: "#00d084", marginBottom: "1rem" }}>Thank You!</h3>
         <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
-          Your message has been sent successfully. We'll get back to you soon!
+          Your message has been sent successfully. We&apos;ll get back to you
+          soon!
         </p>
         <motion.button
           onClick={() => setSubmitted(false)}
@@ -318,7 +376,7 @@ const ContactForm = () => {
                   backgroundClip: "text",
                 }}
               >
-                📋 Personal Information
+                <MdOutlineAssignment /> Personal Information
               </h3>
 
               <div
@@ -339,7 +397,7 @@ const ContactForm = () => {
                       fontWeight: "500",
                     }}
                   >
-                    👤 Full Name *
+                    <MdOutlinePerson /> Full Name *
                   </label>
                   <motion.input
                     type="text"
@@ -390,7 +448,7 @@ const ContactForm = () => {
                       fontWeight: "500",
                     }}
                   >
-                    📧 Email Address *
+                    <MdOutlineEmail /> Email Address *
                   </label>
                   <motion.input
                     type="email"
@@ -441,7 +499,7 @@ const ContactForm = () => {
                       fontWeight: "500",
                     }}
                   >
-                    📞 Phone Number *
+                    <MdOutlinePhone /> Phone Number *
                   </label>
                   <motion.input
                     type="tel"
@@ -492,7 +550,7 @@ const ContactForm = () => {
                       fontWeight: "500",
                     }}
                   >
-                    🏢 Company (Optional)
+                    <MdOutlineBusiness /> Company (Optional)
                   </label>
                   <motion.input
                     type="text"
@@ -539,7 +597,7 @@ const ContactForm = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Next Step ➡️
+                  Next Step <MdOutlineArrowForward />
                 </motion.button>
               </div>
             </motion.div>
@@ -563,7 +621,7 @@ const ContactForm = () => {
                   backgroundClip: "text",
                 }}
               >
-                🛠️ Project Details
+                <MdOutlineChat /> Project Details
               </h3>
 
               {/* Service Selection */}
@@ -576,7 +634,7 @@ const ContactForm = () => {
                     fontWeight: "500",
                   }}
                 >
-                  🎯 Select Service *
+                  <MdOutlineGpsFixed /> Select Service *
                 </label>
                 <div
                   style={{
@@ -655,7 +713,7 @@ const ContactForm = () => {
                     fontWeight: "500",
                   }}
                 >
-                  ⚡ Priority Level
+                  <MdOutlineFlashOn /> Priority Level
                 </label>
                 <div
                   style={{
@@ -730,7 +788,7 @@ const ContactForm = () => {
                     fontWeight: "500",
                   }}
                 >
-                  💬 Project Details *
+                  <MdOutlineChat /> Project Details *
                 </label>
                 <motion.textarea
                   name="message"
@@ -800,7 +858,7 @@ const ContactForm = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  ⬅️ Previous
+                  <MdOutlineArrowBack /> Previous
                 </motion.button>
 
                 <motion.button
@@ -845,7 +903,7 @@ const ContactForm = () => {
                       Sending...
                     </>
                   ) : (
-                    <>🚀 Send Message</>
+                    <>Send Message</>
                   )}
                 </motion.button>
               </div>

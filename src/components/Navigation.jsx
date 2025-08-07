@@ -31,6 +31,18 @@ const AdvancedNavigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when screen size changes to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isMenuOpen]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -101,7 +113,7 @@ const AdvancedNavigation = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "1rem 2rem",
+            padding: "1rem",
             maxWidth: "1280px",
             margin: "0 auto",
           }}
@@ -291,17 +303,21 @@ const AdvancedNavigation = () => {
               style={{
                 position: "absolute",
                 top: "100%",
-                left: 0,
-                right: 0,
+                left: "1rem",
+                right: "1rem",
+                maxWidth: "400px",
+                margin: "0 auto",
                 background: "rgba(10, 15, 28, 0.98)",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
-                borderBottom: "1px solid rgba(0, 245, 255, 0.2)",
-                padding: "2rem",
+                borderRadius: "16px",
+                border: "1px solid rgba(0, 245, 255, 0.2)",
+                padding: "1.5rem",
+                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
               }}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.3 }}
             >
               <div
@@ -375,19 +391,50 @@ const AdvancedNavigation = () => {
       </motion.header>
 
       {/* Mobile Styles */}
-      <style jsx>{`
-        @media (max-width: 768px) {
+      <style>{`
+        @media (max-width: 767px) {
           .nav-brand h1 {
-            font-size: 1.2rem !important;
+            font-size: 1.1rem !important;
           }
           .nav-brand span {
             display: none;
           }
+          .container {
+            padding: 0.75rem 1rem !important;
+          }
           nav > div:first-child {
+            display: none !important;
+          }
+          nav > button:not(.mobile-menu-toggle) {
             display: none !important;
           }
           .mobile-menu-toggle {
             display: block !important;
+          }
+        }
+        
+        @media (min-width: 768px) {
+          .mobile-menu-toggle {
+            display: none !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .nav-brand h1 {
+            font-size: 1rem !important;
+          }
+          .container {
+            padding: 0.5rem 1rem !important;
+          }
+        }
+        
+        @media (max-width: 375px) {
+          .nav-brand h1 {
+            font-size: 0.9rem !important;
+          }
+          .nav-brand div:first-child {
+            width: 40px !important;
+            height: 40px !important;
           }
         }
       `}</style>

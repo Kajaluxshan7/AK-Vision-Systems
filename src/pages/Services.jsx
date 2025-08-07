@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import SEO from "../components/SEO";
 
 const AdvancedServices = () => {
   const [activeService, setActiveService] = useState(null);
@@ -215,7 +216,6 @@ const AdvancedServices = () => {
     },
   ];
 
-
   const categories = [
     { id: "all", label: "All Services", icon: "🔧" },
     { id: "security", label: "Security", icon: "🛡️" },
@@ -238,10 +238,17 @@ const AdvancedServices = () => {
         paddingTop: "100px",
       }}
     >
+      <SEO
+        title="Advanced Technology Services - CCTV, Audio/Video, Digital Marketing"
+        description="Comprehensive technology services including AI-powered CCTV & security systems, commercial audio/video solutions, digital marketing, web development, and food ordering systems. Professional installation and 24/7 support across Canada."
+        keywords="CCTV services Canada, security systems, audio video installation, digital marketing services, web development, social media management, food ordering systems, brand strategy, technology solutions"
+        url="https://akvision.ca/services"
+      />
+
       {/* Hero Section */}
       <section
         style={{
-          padding: "4rem 2rem",
+          padding: "4rem 1rem",
           textAlign: "center",
           background: `
           radial-gradient(circle at 50% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
@@ -251,7 +258,11 @@ const AdvancedServices = () => {
       >
         <div
           className="container"
-          style={{ maxWidth: "1280px", margin: "0 auto" }}
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "0 1rem",
+          }}
         >
           <motion.h1
             style={{
@@ -267,7 +278,7 @@ const AdvancedServices = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            🚀 Advanced Technology Services
+            Advanced Technology Services
           </motion.h1>
 
           <motion.p
@@ -405,23 +416,6 @@ const AdvancedServices = () => {
                           "linear-gradient(135deg, rgba(0, 245, 255, 0.3), rgba(124, 58, 237, 0.3))",
                       }}
                     />
-
-                    {/* Price Badge */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "1rem",
-                        right: "1rem",
-                        background: "rgba(0, 245, 255, 0.9)",
-                        color: "#0a0f1c",
-                        padding: "0.5rem 1rem",
-                        borderRadius: "20px",
-                        fontSize: "0.875rem",
-                        fontWeight: "600",
-                      }}
-                    >
-                      {service.price}
-                    </div>
 
                     {/* Service Icon */}
                     <div
@@ -785,31 +779,33 @@ const AdvancedServices = () => {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              🚀 Get Free Consultation
+              Get Free Consultation
             </motion.button>
 
-            <motion.button
-              style={{
-                background: "rgba(255, 255, 255, 0.1)",
-                color: "white",
-                border: "1px solid rgba(255, 255, 255, 0.3)",
-                padding: "1rem 2rem",
-                borderRadius: "25px",
-                fontSize: "1.1rem",
-                fontWeight: "600",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-              }}
-              whileHover={{
-                scale: 1.05,
-                background: "rgba(255, 255, 255, 0.2)",
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Call +1 416-508-4636
-            </motion.button>
+            <a href="tel:+14165084636" style={{ textDecoration: "none" }}>
+              <motion.button
+                style={{
+                  background: "rgba(255, 255, 255, 0.1)",
+                  color: "white",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                  padding: "1rem 2rem",
+                  borderRadius: "25px",
+                  fontSize: "1.1rem",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  background: "rgba(255, 255, 255, 0.2)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Call +1 416-508-4636
+              </motion.button>
+            </a>
           </motion.div>
         </div>
       </section>
