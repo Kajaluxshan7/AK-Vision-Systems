@@ -36,6 +36,7 @@ const ContactForm = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [apiError, setApiError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
@@ -60,12 +61,14 @@ const ContactForm = () => {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
   };
 
   const nextStep = () => {
-    if (validateStep(currentStep)) {
+    const stepErrors = validateStep(currentStep);
+    if (Object.keys(stepErrors).length === 0) {
       setCurrentStep(currentStep + 1);
+      setApiError("");
     }
   };
 
@@ -76,9 +79,14 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateStep(2)) return;
+    const stepErrors = validateStep(2);
+    if (Object.keys(stepErrors).length > 0) {
+      setApiError("Please correct the errors below and try again.");
+      return;
+    }
 
     setIsSubmitting(true);
+    setApiError("");
 
     try {
       const response = await fetch("/api/sendEmail", {
@@ -103,8 +111,13 @@ const ContactForm = () => {
           timeline: "",
         });
         setCurrentStep(1);
+        setApiError("");
+      } else {
+        const data = await response.json();
+        setApiError(data.error || "Failed to send message. Please try again.");
       }
     } catch (error) {
+      setApiError("Network error. Please try again later.");
       console.error("Form submission error:", error);
     } finally {
       setIsSubmitting(false);
@@ -472,7 +485,7 @@ const ContactForm = () => {
                       borderColor: "#00f5ff",
                       boxShadow: "0 0 20px rgba(0, 245, 255, 0.3)",
                     }}
-                    placeholder="your.email@example.com"
+                    placeholder="email@example.com"
                   />
                   {errors.email && (
                     <motion.p
@@ -611,6 +624,23 @@ const ContactForm = () => {
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.3 }}
             >
+              {apiError && (
+                <motion.div
+                  style={{
+                    background: "rgba(255, 71, 87, 0.1)",
+                    color: "#ff4757",
+                    border: "1px solid #ff4757",
+                    borderRadius: "12px",
+                    padding: "1rem",
+                    marginBottom: "1rem",
+                    textAlign: "center",
+                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  {apiError}
+                </motion.div>
+              )}
               <h3
                 style={{
                   textAlign: "center",
