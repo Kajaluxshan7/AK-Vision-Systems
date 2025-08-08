@@ -407,7 +407,7 @@ export default async function handler(req, res) {
 <body>
   <div class="email-container">
     <div class="header">
-      <img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Systems Logo" />
+      <img src="https://www.akvisionsystems.com/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Systems Logo" />
       <h1>New Contact Request</h1>
       <p>A potential client has reached out to AK Vision Systems</p>
     </div>
@@ -529,7 +529,7 @@ export default async function handler(req, res) {
     </div>
     
     <div class="footer">
-      <img src="https://ak-vision-systems.vercel.app/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Systems Logo" />
+      <img src="https://www.akvisionsystems.com/Images/AK-Vision%20Systems%20Logo.png" alt="AK Vision Systems Logo" />
       <div class="footer-links">
         <a href="https://akvisionsystems.com/" class="footer-link">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
